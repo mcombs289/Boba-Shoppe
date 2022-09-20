@@ -44,6 +44,7 @@ router.delete("/:productId", async (req, res, next) => {
   }
 });
 
+//edit a product - will be for admins
 router.put("/:productId", async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.productId);
