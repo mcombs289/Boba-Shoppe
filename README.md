@@ -37,3 +37,4 @@
 ### What time does this group have daily stand up?
 
 - 10:45AM
+>>>>>>> 5af6f2c47d051c8916c682799000a0e1d9670456
