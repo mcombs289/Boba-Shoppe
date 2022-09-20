@@ -35,7 +35,7 @@ const seed = async () => {
             password: "123"
         },
         {
-            id: 1,
+            id: 4,
             firstName: "Eric",
             lastName: "Fan",
             email: "e@f.com",
