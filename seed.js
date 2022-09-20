@@ -75,7 +75,7 @@ const seed = async () => {
             category: "Sweet"
         },
         {
-            id: 1,
+            id: 4,
             name: "Matcha",
             quantity: 3,
             imageUrl: "",
