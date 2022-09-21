@@ -1,0 +1,29 @@
+.container{
+    font-family: "Comic Sans MS", "Comic Sans";
+    font-size: 20px;
+}
+
+.card{}
+
+.title{}
+
+.img{
+    width: 300px;
+    height: 300px;
+}
+
+.img-card{
+    border-radius: 10px;
+
+}
+
+.info{}
+
+.link{
+    text-decoration: none;
+}
+
+.link:hover{
+    text-decoration: underline;
+}
+
