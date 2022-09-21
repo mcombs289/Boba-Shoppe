@@ -15,15 +15,20 @@ class Product extends React.Component {
   render() {
     const { product } = this.props;
     return (
-      <div>
-        <div key={product.id}>
-          <h2>{product.name}</h2>
-          <p>Description: {product.description}</p>
-          <p>Quantity: {product.quantity}</p>
-          <p>Price: {product.price}</p>
-          <img style={{ width: "8rem" }} src={product.imageUrl} />
+      <div className="container">
+        <div className="card" key={product.id}>
+          <h2 className="title">{product.name}</h2>
+          <div className="img-card">
+            <img className="img" src={product.imageUrl} />
+          </div>
+          <p className="info">Description: {product.description}</p>
+          <p className="info">Quantity: {product.quantity}</p>
+          <p className="info">Price: {product.price}</p>
         </div>
-        <Link to="/home">Back to Home</Link>
+
+        <Link to="/home" className="link">
+          Back to Home
+        </Link>
       </div>
     );
   }
