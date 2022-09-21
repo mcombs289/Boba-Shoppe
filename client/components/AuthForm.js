@@ -45,6 +45,18 @@ const SignUp = (props) => {
           <input name="username" type="text" />
         </div>
         <div>
+          <label htmlFor="firstname">
+            <small>First Name</small>
+          </label>
+          <input name="firstname" type="text" />
+        </div>
+        <div>
+          <label htmlFor="lastname">
+            <small>Last Name</small>
+          </label>
+          <input name="username" type="text" />
+        </div>
+        <div>
           <label htmlFor="password">
             <small>Password</small>
           </label>
