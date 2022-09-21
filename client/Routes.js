@@ -4,6 +4,8 @@ import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 import { Login, Signup } from "./components/AuthForm";
 import Home from "./components/Home";
 import { me } from "./store";
+import AllProducts from "./components/AllProducts";
+import Product from "./components/Product";
 
 /**
  * COMPONENT
@@ -13,16 +15,16 @@ class Routes extends Component {
     this.props.loadInitialData();
   }
 
-  //hiii
   render() {
     const { isLoggedIn } = this.props;
-
     return (
       <div>
         {isLoggedIn ? (
           <Switch>
             <Route path="/home" component={Home} />
-            <Redirect to="/home" />
+            {/* <Redirect to="/home" /> */}
+            <Route path="/products" component={AllProducts} />
+            <Route path="/products/:id" component={Product} />
           </Switch>
         ) : (
           <Switch>

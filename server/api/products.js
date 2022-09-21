@@ -2,7 +2,6 @@ const router = require("express").Router();
 const {
   models: { Product },
 } = require("../db");
-module.exports = router;
 
 //api/products
 router.get("/", async (req, res, next) => {
@@ -24,9 +23,9 @@ router.post("/", async (req, res, next) => {
 });
 
 //returns a single product
-router.get("/:productId", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
-    const product = await Product.findByPk(req.params.productId);
+    const product = await Product.findByPk(req.params.id);
     res.json(product);
   } catch (err) {
     next(err);
@@ -34,9 +33,9 @@ router.get("/:productId", async (req, res, next) => {
 });
 
 //delete a specific product
-router.delete("/:productId", async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
-    const product = await Product.findByPk(req.params.productId);
+    const product = await Product.findByPk(req.params.id);
     await product.destroy();
     res.send(product);
   } catch (error) {
@@ -45,11 +44,13 @@ router.delete("/:productId", async (req, res, next) => {
 });
 
 //edit a product - will be for admins
-router.put("/:productId", async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   try {
-    const product = await Product.findByPk(req.params.productId);
+    const product = await Product.findByPk(req.params.id);
     res.send(await product.update(req.body));
   } catch (error) {
     next(error);
   }
 });
+
+module.exports = router;
