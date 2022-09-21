@@ -1,7 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Connect } from "react-redux";
+import { connect } from "../../server/api/products";
 
-export class singleProduct extends React.Component {
+export class SingleProduct extends React.Component {
+  componentDidMount() {
+    const productId = this.props.match.params.id;
+  }
+
   render() {
     return (
       <div>
@@ -18,3 +24,5 @@ export class singleProduct extends React.Component {
     );
   }
 }
+
+export default connect(SingleProduct);
