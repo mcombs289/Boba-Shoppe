@@ -63,7 +63,8 @@ async function seed() {
       id: 1,
       name: "Strawberry",
       quantity: 10,
-      imageUrl: "",
+      imageUrl:
+        "https://www.besthealthmag.ca/wp-content/uploads/2019/03/Strawberry-Benefits.jpg",
       price: 5.45,
       description: "yummy",
       category: "Fruit",
@@ -72,7 +73,8 @@ async function seed() {
       id: 2,
       name: "Mango",
       quantity: 7,
-      imageUrl: "",
+      imageUrl:
+        "https://www.saveur.com/uploads/2021/07/09/Mangoes-Its-Mango-Time-Vaughn-Stafford-Gray-Belle-Morizio.jpg?auto=webp",
       price: 6.95,
       description: "delicious",
       category: "Fruit",
@@ -81,7 +83,8 @@ async function seed() {
       id: 3,
       name: "Chocolate",
       quantity: 7,
-      imageUrl: "",
+      imageUrl:
+        "https://thumbs.dreamstime.com/b/dark-chocolate-pink-background-top-view-dark-chocolate-pink-background-115593402.jpg",
       price: 6.25,
       description: "Oooooh lala",
       category: "Sweet",
@@ -90,7 +93,8 @@ async function seed() {
       id: 4,
       name: "Matcha",
       quantity: 3,
-      imageUrl: "",
+      imageUrl:
+        "https://thumbs.dreamstime.com/b/matcha-dry-green-powder-pink-background-making-japanese-natural-tea-171510135.jpg",
       price: 3.99,
       description: "green",
       category: "Tea",

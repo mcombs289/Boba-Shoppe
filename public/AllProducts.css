@@ -1,0 +1,26 @@
+/* https://codepen.io/juliepark/pen/aKbYVp */
+
+.itemContainer{
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0px;
+
+}
+#singleItem{ 
+  margin: 5%;
+  margin-top: 5%;
+    background: white;
+     box-shadow: 5px 5px 15px rosybrown;
+     width: 300px;
+     height: 250px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+  }
+  
+ img { 
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }

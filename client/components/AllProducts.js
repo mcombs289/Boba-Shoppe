@@ -14,18 +14,19 @@ export class AllProducts extends React.Component {
 
   render() {
     const products = this.props.products || [];
-
+    console.log(products);
     return (
       <div id="allItems">
-        <h2>Hello!</h2>
-        <div>
+        <div className="itemContainer">
           {products.length
             ? products.map((product) => {
                 return (
                   <div id="singleItem" key={product.id}>
-                    <div>
+                    <div className="productDisplayCard">
                       <Link to={`/products/${product.id}`}>
+                        <img src={product.imageUrl} alt="image" />
                         <h2>{product.name}</h2>
+                        <h3>{product.price}</h3>
                       </Link>
                     </div>
                     {/* <img style={{ width: "8rem" }} src={product.imageUrl} /> */}
