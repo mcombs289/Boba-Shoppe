@@ -33,6 +33,7 @@ const SignUp = (props) => {
   return (
     <div className="authPage">
       <form onSubmit={handleSubmit} name={name}>
+        <h1>SIGN UP</h1>
         <div>
           <input name="username" placeholder="username" type="text" />
         </div>
