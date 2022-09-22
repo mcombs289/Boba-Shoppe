@@ -3,17 +3,35 @@
     font-family: "Comic Sans MS", "Comic Sans";
     font-size: 20px;
     justify-content: center;
-    flex-wrap: wrap;
 
 }
 
 .card{
     margin-top: 50px;
-
+    justify-items: auto;
     height: 400px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 5px 5px 15px rosybrown;
     text-align: center;
-    
+    background-color: white;    
+    padding: 2%;
+}
+
+.card button{
+    background-color: #E0B1CB;
+    padding: 10px;
+    outline: 0;
+    border: 0;
+    margin: -1px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    cursor: pointer;
+    transition-duration: 1s;
+} 
+
+.card button:hover{
+    background-color: #d38fb4;
+    transition: all .4s ease-in-out;
 }
 
 .title{
@@ -41,11 +59,8 @@
 }
 
 .link{
-    margin-top: 100px;
+    margin-top: 50px;
 
 }
 
-.link:hover{
-    text-decoration: underline;
-}
 

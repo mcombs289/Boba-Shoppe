@@ -46,9 +46,9 @@ router.get("/:username", async (req, res, next) => {
 });
 
 //delete a specific user
-router.delete("/:userId", async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.userId);
+    const user = await User.findByPk(req.params.id);
     await user.destroy();
     res.send(user);
   } catch (error) {
@@ -57,9 +57,9 @@ router.delete("/:userId", async (req, res, next) => {
 });
 
 //edit a user - will be for user to edit their own log in
-router.put("/:userId", async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.userId);
+    const user = await User.findByPk(req.params.id);
     res.send(await user.update(req.body));
   } catch (error) {
     next(error);

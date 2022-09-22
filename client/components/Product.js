@@ -23,10 +23,13 @@ class Product extends React.Component {
           </div>
           <div className="info-card">
             <p className="info">Price: {product.price}</p>
-            <p className="info">Quantity: {product.quantity}</p>
+            <p className="info">Left in Stock: {product.quantity}</p>
             <p className="info">Description: {product.description}</p>
+            <button>Add to Cart</button>
             <div className="link">
-              <Link to="/home">Back to Home</Link>
+              <Link to="/home">
+                <button>Back to Home</button>
+              </Link>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import axios from "axios";
 
 // ACTION TYPE
 const SET_USER = "SET_USER";
+const EDIT_USER = "EDIT_USER";
 
 // ACTION CREATOR
 const setUser = (user) => {
@@ -11,11 +12,33 @@ const setUser = (user) => {
   };
 };
 
+const editUser = (user) => {
+  return {
+    type: EDIT_USER,
+    user,
+  };
+};
+
 // THUNK CREATOR
 export const fetchUser = (username) => {
   return async (dispatch) => {
-    const { data: user } = await axios.get(`/api/users/${username}`);
-    dispatch(setUser(user));
+    try {
+      const { data: user } = await axios.get(`/api/users/${username}`);
+      dispatch(setUser(user));
+    } catch (error) {
+      return error;
+    }
+  };
+};
+
+export const fetchEditedUser = (user) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.put(`/api/users/${user.id}`, user);
+      dispatch(editUser(data));
+    } catch (error) {
+      return error;
+    }
   };
 };
 
