@@ -17,7 +17,6 @@ export class Profile extends React.Component {
 
   render() {
     let user = this.props.user;
-    console.log("this", user);
     return (
       <div className="profileContainer">
         <div className="leftDiv">
