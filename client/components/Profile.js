@@ -9,7 +9,6 @@ export class Profile extends React.Component {
     this.state = {
       user: {},
     };
-    this.openCity = this.openCity.bind(this);
   }
 
   componentDidMount() {
