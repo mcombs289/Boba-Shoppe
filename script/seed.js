@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: { User, Product },
+  models: { User, Product, Order },
 } = require("../server/db");
 
 /**
@@ -97,7 +97,33 @@ async function seed() {
     }),
   ]);
 
-  console.log(`seeded ${users.length} users && ${products.length} products`);
+  // Creating Orders
+  const orders = await Promise.all([
+    Order.create({
+      isFulfilled: false,
+      userId: 1,
+    }),
+    Order.create({
+      isFulfilled: true,
+      userId: 2,
+    }),
+    Order.create({
+      isFulfilled: false,
+      userId: 3,
+    }),
+    Order.create({
+      isFulfilled: true,
+      userId: 4,
+    }),
+    Order.create({
+      isFulfilled: false,
+      userId: 4,
+    }),
+  ]);
+
+  console.log(
+    `seeded ${users.length} users && ${products.length} products && ${orders.length} orders`
+  );
   console.log(`seeded successfully`);
   return {
     users: {
@@ -120,6 +146,7 @@ async function seed() {
  This way we can isolate the error handling and exit trapping.
  The `seed` function is concerned only with modifying the database.
 */
+
 async function runSeed() {
   console.log("seeding...");
   try {
