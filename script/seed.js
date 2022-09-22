@@ -20,7 +20,8 @@ async function seed() {
       firstName: "Abby",
       lastName: "Lee",
       email: "a@l.com",
-      imageUrl: "",
+      imageUrl:
+        "https://cdn2.vectorstock.com/i/1000x1000/98/11/girl-icon-flat-single-avatarpeaople-icon-from-vector-14449811.jpg",
       adminAccess: false,
       username: "Abby",
       password: "123",
@@ -30,7 +31,8 @@ async function seed() {
       firstName: "Bea",
       lastName: "Bosch",
       email: "b@b.com",
-      imageUrl: "",
+      imageUrl:
+        "https://cdn2.vectorstock.com/i/1000x1000/98/11/girl-icon-flat-single-avatarpeaople-icon-from-vector-14449811.jpg",
       adminAccess: true,
       username: "Bea",
       password: "123",

@@ -1,0 +1,58 @@
+
+.profileContainer{
+    display: flex;
+    height: 100%;
+    background-color:  rgb(218, 209, 227);
+    padding: 2%
+}
+.leftDiv{ 
+    background-color: rgb(218, 209, 227);
+    width: 20%;
+    height: 100%;
+    padding: 10px;
+    padding-left: 2%;
+    margin: 0
+}
+
+.rightDiv{
+    background-color: white;
+    width: 70%;
+    height: max-content;
+    display: flex;
+    padding-left: 2%;
+    height: 400px
+
+}
+
+.rightDiv img{
+    height: 200px;
+    width: 200px;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+

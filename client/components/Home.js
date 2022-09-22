@@ -10,6 +10,7 @@ export const Home = (props) => {
 
   return (
     <div>
+      <h1>{username}</h1>
       <AllProducts />
     </div>
   );

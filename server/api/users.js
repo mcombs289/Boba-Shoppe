@@ -30,10 +30,12 @@ router.get("/", async (req, res, next) => {
 // });
 
 //get specific user and their products
-router.get("/:userId", async (req, res, next) => {
+router.get("/:username", async (req, res, next) => {
   try {
-    const user = await Student.findByPk(req.params.userId, {
-      include: [{ model: Products }],
+    const user = await User.findAll({
+      where: {
+        username: req.params.username,
+      },
     });
     res.json(user);
   } catch (err) {
