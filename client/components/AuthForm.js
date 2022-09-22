@@ -9,19 +9,14 @@ const LogIn = (props) => {
   const { name, displayName, handleSubmit, error } = props;
 
   return (
-    <div>
+    <div className="authPage">
       <form onSubmit={handleSubmit} name={name}>
+        <h1>LOG IN</h1>
         <div>
-          <label htmlFor="username">
-            <small>Username</small>
-          </label>
-          <input name="username" type="text" />
+          <input name="username" placeholder="User name" type="text" />
         </div>
         <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
+          <input name="password" placeholder="password" type="password" />
         </div>
         <div>
           <button type="submit">{displayName}</button>
@@ -36,37 +31,22 @@ const SignUp = (props) => {
   const { name, displayName, handleSubmit, error } = props;
 
   return (
-    <div>
+    <div className="authPage">
       <form onSubmit={handleSubmit} name={name}>
         <div>
-          <label htmlFor="username">
-            <small>Username</small>
-          </label>
-          <input name="username" type="text" />
+          <input name="username" placeholder="username" type="text" />
         </div>
         <div>
-          <label htmlFor="firstname">
-            <small>First Name</small>
-          </label>
-          <input name="firstname" type="text" />
+          <input name="password" placeholder="password" type="password" />
         </div>
         <div>
-          <label htmlFor="lastname">
-            <small>Last Name</small>
-          </label>
-          <input name="username" type="text" />
+          <input name="firstname" placeholder="First Name" type="text" />
         </div>
         <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
+          <input name="lastname" placeholder="Last Name" type="text" />
         </div>
         <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="email" />
+          <input name="email" placeholder="email" type="email" />
         </div>
         <div>
           <button type="submit">{displayName}</button>

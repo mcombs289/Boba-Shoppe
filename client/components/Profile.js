@@ -54,7 +54,10 @@ export class Profile extends React.Component {
             <h3>Email: {user.email}</h3>
             <h3>username: {user.username}</h3>
           </div>
-          <img src={user.imageUrl} alt="image" />
+          <div>
+            <img src={user.imageUrl} alt="image" />
+            <button>Edit Profile Pic</button>
+          </div>
         </div>
       </div>
     );
