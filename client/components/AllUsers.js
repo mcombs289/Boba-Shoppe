@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchUsers } from "../redux/users";
+import { me } from "../store/auth";
 
 export class AllUsers extends React.Component {
   constructor(props) {
@@ -10,30 +11,31 @@ export class AllUsers extends React.Component {
 
   componentDidMount() {
     this.props.getUsers();
+    this.props.currentUserData();
   }
 
   render() {
     const users = this.props.users || [];
-
-    return (
+    const isAdmin = this.props.isAdmin;
+    return isAdmin ? (
       <div id="allUsers">
         <h2>All Users:</h2>
         <div>
-          {users.length
-            ? users.map((user) => {
-                return (
-                  <div id="singleUser" key={user.id}>
-                    <div>
-                      <Link to={`/users/${user.id}`}>
-                        <h2>{user.name}</h2>
-                      </Link>
-                    </div>
-                  </div>
-                );
-              })
-            : null}
+          {users.map((user) => {
+            return (
+              <div id="singleUser" key={user.id}>
+                <div>
+                  <Link to={`/users/${user.id}`}>
+                    <h2>{user.username}</h2>
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
+    ) : (
+      "Access Forbidden"
     );
   }
 }
@@ -41,11 +43,15 @@ export class AllUsers extends React.Component {
 const mapState = (state) => {
   return {
     users: state.users,
+    isAdmin: state.auth.adminAccess,
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   getUsers: () => dispatch(fetchUsers()),
+  currentUserData() {
+    dispatch(me());
+  },
 });
 
 export default connect(mapState, mapDispatchToProps)(AllUsers);
