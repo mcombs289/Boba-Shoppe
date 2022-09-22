@@ -1,7 +1,8 @@
 const router = require("express").Router();
-const { Products } = require("../db");
+
 const {
   models: { User },
+  models: { Product },
 } = require("../db");
 module.exports = router;
 
@@ -36,6 +37,7 @@ router.get("/:username", async (req, res, next) => {
       where: {
         username: req.params.username,
       },
+      include: [Product],
     });
     res.json(user);
   } catch (err) {

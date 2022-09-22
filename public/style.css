@@ -16,12 +16,14 @@ nav a {
 }
 
 .authPage{
+	/* background-image: url(https://files.slack.com/files-pri/T024FPYBQ-F043GGMBZ60/untitled_design.jpg); */
 	background: linear-gradient( #5E548E, #231942);
 	padding: 2%;
 }
 
 form{
   border-radius: 10px;
+
   background: linear-gradient(#231942, #5E548E);
 	box-shadow: 5px 20px 50px #000;
   height: 600px;

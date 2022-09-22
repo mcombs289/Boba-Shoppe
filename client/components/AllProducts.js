@@ -27,6 +27,12 @@ export class AllProducts extends React.Component {
                         <img src={product.imageUrl} alt="image" />
                         <h2>{product.name}</h2>
                         <h3>{product.price}</h3>
+                        <div className="likeArea">
+                          <button class="add">Add to Cart</button>
+                          <button class="like">
+                            <span>♥</span>
+                          </button>
+                        </div>
                       </Link>
                     </div>
                     {/* <img style={{ width: "8rem" }} src={product.imageUrl} /> */}
