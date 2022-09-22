@@ -1,11 +1,24 @@
 .container{
+    display: flex;
     font-family: "Comic Sans MS", "Comic Sans";
     font-size: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+
 }
 
-.card{}
+.card{
+    margin-top: 50px;
 
-.title{}
+    height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    
+}
+
+.title{
+    justify-self: center;
+}
 
 .img{
     width: 300px;
@@ -13,14 +26,23 @@
 }
 
 .img-card{
-    border-radius: 10px;
-
+    float: left;
+    margin-left: 30px;
 }
 
-.info{}
+.info-card{
+    float: right;
+    margin-left: 50px;
+    text-align: justify;
+}
+
+.info{
+    gap: 20px 20px;
+}
 
 .link{
-    text-decoration: none;
+    margin-top: 100px;
+
 }
 
 .link:hover{

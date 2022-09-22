@@ -21,14 +21,15 @@ class Product extends React.Component {
           <div className="img-card">
             <img className="img" src={product.imageUrl} />
           </div>
-          <p className="info">Description: {product.description}</p>
-          <p className="info">Quantity: {product.quantity}</p>
-          <p className="info">Price: {product.price}</p>
+          <div className="info-card">
+            <p className="info">Price: {product.price}</p>
+            <p className="info">Quantity: {product.quantity}</p>
+            <p className="info">Description: {product.description}</p>
+            <div className="link">
+              <Link to="/home">Back to Home</Link>
+            </div>
+          </div>
         </div>
-
-        <Link to="/home" className="link">
-          Back to Home
-        </Link>
       </div>
     );
   }
