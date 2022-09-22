@@ -20,14 +20,14 @@ export class AllProducts extends React.Component {
 
     return isAdmin ? (
       <div id="allItems">
-        <h2>Hello</h2>
-        <div>
+        <div className="itemContainer">
           {products.length
             ? products.map((product) => {
                 return (
                   <div id="singleItem" key={product.id}>
-                    <div>
+                    <div className="productDisplayCard">
                       <Link to={`/products/${product.id}`}>
+                        <img src={product.imageUrl} alt="image" />
                         <h2>{product.name}</h2>
                         <button>Edit</button>
                         <button>Delete</button>
