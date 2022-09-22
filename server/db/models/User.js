@@ -80,6 +80,13 @@ User.findByToken = async function (token) {
   }
 };
 
+User.findAdmin = async function ({ username, adminAccess }) {
+  const adminUser = await this.findOne({ where: { username, adminAccess } });
+  if (adminAccess) {
+    return username;
+  }
+};
+
 /**
  * hooks
  */
