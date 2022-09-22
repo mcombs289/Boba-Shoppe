@@ -22,7 +22,8 @@ const User = db.define("user", {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    defaultValue: "",
+    defaultValue:
+      "https://louisville.edu/enrollmentmanagement/images/person-icon/image",
   },
   adminAccess: {
     type: Sequelize.BOOLEAN,
