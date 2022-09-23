@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { authenticate } from "../store";
-
+import { Link } from "react-router-dom";
 /**
  * COMPONENT
  */
@@ -22,6 +22,13 @@ const LogIn = (props) => {
           <button type="submit">{displayName}</button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
+        <br></br>
+        <h6>Don't have an Account?</h6>
+        <Link to="/signup">
+          <button type="button" className="signUp">
+            Sign up
+          </button>
+        </Link>
       </form>
     </div>
   );

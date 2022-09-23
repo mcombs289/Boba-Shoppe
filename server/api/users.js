@@ -4,6 +4,8 @@ const {
   models: { User },
   models: { Product },
 } = require("../db");
+const Order = require("../db/models/Order");
+module.exports = router;
 
 //api/users
 router.get("/", async (req, res, next) => {
@@ -13,6 +15,7 @@ router.get("/", async (req, res, next) => {
       // users' passwords are encrypted, it won't help if we just
       // send everything to anyone who asks!
       attributes: ["id", "username"],
+      include: [Order],
     });
     res.json(users);
   } catch (err) {
