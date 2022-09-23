@@ -5,23 +5,26 @@ import { Link } from "react-router-dom";
 import { EditUser } from "./EditUser";
 
 export class Profile extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log("my props", props);
-    this.state = {
-      user: {},
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   console.log("my props", props);
+  //   this.state = {
+  //     user: {},
+  //   };
+  // }
 
   componentDidMount() {
-    //   console.log("Profile mounts:", this.props);
-    //   console.log("singleuser: ", this.props.singleUser);
-    this.props.setUser(this.props.username);
+    const username = this.props.match.params.username;
+    this.props.setUser(username);
   }
 
   render() {
-    let user = this.props.user;
-
+    const user = this.props.user || {};
+    console.log("PRops: ", this.props);
+    //console.log("PRINT: ", this.props.user[0]);
+    console.log("USER: ", this.props.user[0]);
+    //let user = this.props.user[0];
+    console.log(Object.values({ user }));
     return (
       <div className="profileContainer">
         <div className="leftDiv">
@@ -57,7 +60,7 @@ export class Profile extends React.Component {
 
 const mapState = (state) => {
   return {
-    singleUser: state.user,
+    //singleUser: state.user,
     //user: state.auth,
     user: state.user,
   };

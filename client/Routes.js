@@ -7,7 +7,6 @@ import { me } from "./store";
 import AllProducts from "./components/AllProducts";
 import Product from "./components/Product";
 import AllUsers from "./components/AllUsers";
-
 import Profile from "./components/Profile";
 /**
  * COMPONENT
