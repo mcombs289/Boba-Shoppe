@@ -2,25 +2,30 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchUser } from "../redux/user";
 import { Link } from "react-router-dom";
+import { EditUser } from "./EditUser";
 
 export class Profile extends React.Component {
   constructor(props) {
     super(props);
+    console.log("my props", props);
     this.state = {
       user: {},
     };
   }
 
   componentDidMount() {
+    //   console.log("Profile mounts:", this.props);
+    //   console.log("singleuser: ", this.props.singleUser);
     this.props.setUser(this.props.username);
   }
 
   render() {
     let user = this.props.user;
+
     return (
       <div className="profileContainer">
         <div className="leftDiv">
-          <h1>My Account</h1>
+          <h1>{user.firstName}'s Account</h1>
           <hr align="left" width="80%" color="black"></hr>
           <div className="tab">
             <button>Account Information</button>
@@ -44,6 +49,7 @@ export class Profile extends React.Component {
             <button>Edit Profile Pic</button>
           </div>
         </div>
+        {/* <EditUser /> */}
       </div>
     );
   }
@@ -51,7 +57,9 @@ export class Profile extends React.Component {
 
 const mapState = (state) => {
   return {
-    user: state.auth,
+    singleUser: state.user,
+    //user: state.auth,
+    user: state.user,
   };
 };
 

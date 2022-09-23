@@ -18,6 +18,7 @@ const deleteUser = (user) => {
     user,
   };
 };
+
 // THUNK CREATOR
 export const fetchUsers = () => {
   return async (dispatch) => {

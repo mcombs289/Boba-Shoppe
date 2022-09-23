@@ -4,7 +4,6 @@ const {
   models: { User },
   models: { Product },
 } = require("../db");
-module.exports = router;
 
 //api/users
 router.get("/", async (req, res, next) => {
@@ -45,6 +44,16 @@ router.get("/:username", async (req, res, next) => {
   }
 });
 
+//edit a user - will be for user to edit their own log in
+router.put("/:username", async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.username);
+    res.send(await user.update(req.body));
+  } catch (error) {
+    next(error);
+  }
+});
+
 //delete a specific user
 router.delete("/:id", async (req, res, next) => {
   try {
@@ -56,12 +65,4 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
-//edit a user - will be for user to edit their own log in
-router.put("/:id", async (req, res, next) => {
-  try {
-    const user = await User.findByPk(req.params.id);
-    res.send(await user.update(req.body));
-  } catch (error) {
-    next(error);
-  }
-});
+module.exports = router;
