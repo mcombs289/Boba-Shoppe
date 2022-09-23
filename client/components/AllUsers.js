@@ -28,6 +28,7 @@ export class AllUsers extends React.Component {
               <div id="singleItem" key={user.id}>
                 <div className="productDisplayCard">
                   <h2>{user.username}</h2>
+                  <img src={user.imageUrl} alt="image" />
                   <Link to={`/users/${user.username}`}>
                     <button
                       type="submit"

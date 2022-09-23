@@ -1,18 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchUser } from "../redux/user";
-import { Link } from "react-router-dom";
-import { EditUser } from "./EditUser";
 
-export class Profile extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   console.log("my props", props);
-  //   this.state = {
-  //     user: {},
-  //   };
-  // }
-
+export class AdminProfileView extends React.Component {
   componentDidMount() {
     const username = this.props.match.params.username;
     this.props.setUser(username);
@@ -21,21 +11,20 @@ export class Profile extends React.Component {
   render() {
     const user = this.props.user || {};
     console.log("PRops: ", this.props);
-    //console.log("PRINT: ", this.props.user[0]);
+
     console.log("USER: ", this.props.user[0]);
     //let user = this.props.user[0];
     console.log(Object.values({ user }));
+
     return (
       <div className="profileContainer">
         <div className="leftDiv">
           <h1>{user.firstName}'s Account</h1>
           <hr align="left" width="80%" color="black"></hr>
           <div className="tab">
+            <br />
             <button>Account Information</button>
-            <button>My Orders</button>
-            <button>My Wishlist</button>
-            <button>Password Reset</button>
-            <button>Address & Payments</button>
+            <button>Order History</button>
           </div>
         </div>
         <div className="rightDiv">
@@ -60,9 +49,7 @@ export class Profile extends React.Component {
 
 const mapState = (state) => {
   return {
-    //singleUser: state.user,
-    user: state.auth,
-    //user: state.user,
+    user: state.user,
   };
 };
 
@@ -72,4 +59,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapState, mapDispatchToProps)(Profile);
+export default connect(mapState, mapDispatchToProps)(AdminProfileView);
