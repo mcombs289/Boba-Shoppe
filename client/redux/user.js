@@ -36,6 +36,7 @@ export const fetchEditedUser = (user) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.put(`/api/users/${user.username}`, user);
+      console.log("EDITED: ", data);
       dispatch(editUser(data));
     } catch (error) {
       return error;

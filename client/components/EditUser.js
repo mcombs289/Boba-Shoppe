@@ -11,10 +11,13 @@ export class EditUser extends React.Component {
       email: "",
       username: "",
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.props.setUser(this.props.user.id);
+    const username = this.props.match.params.username;
+    this.props.setUser(username);
   }
 
   handleChange(event) {
@@ -68,7 +71,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     editUser: (user) => dispatch(fetchEditedUser(user)),
-    setUser: (id) => dispatch(fetchUser(id)),
+    setUser: (username) => dispatch(fetchUser(username)),
   };
 };
 
