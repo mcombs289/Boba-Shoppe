@@ -13,13 +13,24 @@ label {
 nav a {
   display: inline-block;
   margin: 1em;
+
 }
 
+.NavBar{ 
+	display: flex;
+}
+
+.NavBar h1{ 
+ width:30%
+}
 .authPage{
 	background: linear-gradient( #5E548E, #231942);
 	padding: 2%;
 }
+.AlignRight{
 
+	margin-left: 60%
+}
 form{
   border-radius: 10px;
 
@@ -70,3 +81,19 @@ form button {
 form h1 {
 	color: white;
 }
+
+
+nav img {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 0;
+}
+
+.authPage h6{
+	color: white;
+ }
+
+ .authPage .signUp{ 
+	margin-top: -4%;
+	width: 200px;
+ }

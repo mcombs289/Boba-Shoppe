@@ -5,17 +5,26 @@ import { logout } from "../store";
 import { me } from "../store/auth";
 
 const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
-  <div>
+  <div className="NavBar">
     <h1>Boba Shoppe</h1>
-    <nav>
+    <nav className="AlignRight">
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <Link to="/products">Products</Link>
-          <Link to="/profile">User Profile</Link>
-          {isAdmin ? <Link to="/users">Users</Link> : null}
-          <Link to="/cart">Shopping Cart</Link>
+          <Link to="/home">
+            <img src="/images/homeIcon.png" />
+          </Link>
+          <Link to="/profile">
+            <img src="/images/userIcon.png" />
+          </Link>
+          {isAdmin ? (
+            <Link to="/users">
+              <img src="/images/userIcon.png" />
+            </Link>
+          ) : null}
+          <Link to="/cart">
+            <img src="/images/cartIcon.png" />
+          </Link>
           <a href="#" onClick={handleClick}>
             Logout
           </a>
@@ -24,15 +33,19 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
       ) : (
         <div>
           {/* The navbar will show these links before you log in */}
-          <Link to="/home">Home</Link>
-          <Link to="/products">Products</Link>
-          <Link to="/cart">Shopping Cart</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+          <Link to="/home">
+            <img src="/images/homeIcon.png" />
+          </Link>
+          <Link to="/cart">
+            <img src="/images/cartIcon.png" />
+          </Link>
+          <Link to="/login">
+            <img src="/images/userIcon.png" />
+          </Link>
+          <input type="text" placeholder="Search for any boba"></input>
         </div>
       )}
     </nav>
-    <hr />
   </div>
 );
 
