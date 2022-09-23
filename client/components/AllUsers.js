@@ -14,6 +14,10 @@ export class AllUsers extends React.Component {
     this.props.currentUserData();
   }
 
+  // handleClick() {
+  //   this.setState();
+  // }
+
   render() {
     const users = this.props.users || [];
     const isAdmin = this.props.isAdmin;

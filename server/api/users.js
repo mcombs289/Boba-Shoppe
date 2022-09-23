@@ -6,8 +6,37 @@ const {
 } = require("../db");
 module.exports = router;
 
+const usersOnly = (req, res, next) => {
+  if (!req.user) {
+    const err = new Error("Action not allowed while logged out");
+    err.status = 401;
+    return next(err);
+  } else {
+    next();
+  }
+};
+
+const adminsOnly = (req, res, next) => {
+  let { id, firstName, lastName, email, password, image, adminAccess } =
+    req.user.dataValues;
+
+  if (id && firstName && lastName && email && password && image) {
+    if (!adminAccess) {
+      const err = new Error("This action requires Admin access!");
+      err.status = 401;
+      return next(err);
+    } else {
+      next();
+    }
+  } else {
+    const err = new Error("This action requires Admin access!");
+    err.status = 401;
+    return next(err);
+  }
+};
+
 //api/users
-router.get("/", async (req, res, next) => {
+router.get("/", usersOnly, async (req, res, next) => {
   try {
     const users = await User.findAll({
       // explicitly select only the id and username fields - even though
@@ -31,7 +60,7 @@ router.get("/", async (req, res, next) => {
 // });
 
 //get specific user and their products
-router.get("/:username", async (req, res, next) => {
+router.get("/:username", usersOnly, async (req, res, next) => {
   try {
     const user = await User.findAll({
       where: {
@@ -46,7 +75,7 @@ router.get("/:username", async (req, res, next) => {
 });
 
 //delete a specific user
-router.delete("/:userId", async (req, res, next) => {
+router.delete("/:userId", usersOnly, adminsOnly, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.userId);
     await user.destroy();
@@ -57,7 +86,7 @@ router.delete("/:userId", async (req, res, next) => {
 });
 
 //edit a user - will be for user to edit their own log in
-router.put("/:userId", async (req, res, next) => {
+router.put("/:userId", usersOnly, adminsOnly, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.userId);
     res.send(await user.update(req.body));
