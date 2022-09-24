@@ -77,6 +77,18 @@ router.get("/:username", usersOnly, async (req, res, next) => {
   }
 });
 
+//get specific user and their products
+router.get("/id/:id", async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id, {
+      include: [Order],
+    });
+    res.json(user);
+  } catch (err) {
+    next(err);
+  }
+});
+
 //delete a specific user
 router.delete("/:userId", usersOnly, adminsOnly, async (req, res, next) => {
   try {

@@ -7,7 +7,14 @@ export class Cart extends React.Component {
     this.props.setUser(this.props.user.id);
   }
   render() {
-    console.log(this.props.user);
+    let { user } = this.props;
+    const orders = user.orders || [];
+    if (!user.id) {
+      return null;
+    }
+
+    console.log(user);
+    console.log("orders", orders);
 
     return <div>hello</div>;
   }
