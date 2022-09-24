@@ -7,7 +7,7 @@ const {
 //api/orders
 router.get("/", async (req, res, next) => {
   try {
-    const orders = await Order.findAll({ include: [User] });
+    const orders = await Order.findAll();
     res.json(orders);
   } catch (err) {
     next(err);
@@ -20,6 +20,20 @@ router.post("/", async (req, res, next) => {
     res.status(201).send(await Order.create(req.body));
   } catch (error) {
     next(error);
+  }
+});
+
+//returns orders for a single user
+router.get("/user/:userId", async (req, res, next) => {
+  try {
+    const order = await Order.findAll({
+      where: {
+        userId: req.params.userId,
+      },
+    });
+    res.json(order);
+  } catch (err) {
+    next(err);
   }
 });
 

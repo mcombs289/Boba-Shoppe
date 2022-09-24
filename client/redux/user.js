@@ -31,17 +31,6 @@ export const fetchUser = (username) => {
   };
 };
 
-export const fetchUserById = (id) => {
-  return async (dispatch) => {
-    try {
-      const { data: user } = await axios.get(`/api/users/id/${id}`);
-      console.log("FETCH USER:", user);
-      dispatch(setUser(user));
-    } catch (error) {
-      return error;
-    }
-  };
-};
 export const fetchEditedUser = (user) => {
   return async (dispatch) => {
     try {

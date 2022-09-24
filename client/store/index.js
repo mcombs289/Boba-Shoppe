@@ -5,10 +5,18 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import auth from "./auth";
 import products from "../redux/products";
 import product from "../redux/singleProduct";
+import orders from "../redux/orders";
 import users from "../redux/users";
 import user from "../redux/user";
 
-const reducer = combineReducers({ auth, products, product, users, user });
+const reducer = combineReducers({
+  auth,
+  products,
+  product,
+  users,
+  user,
+  orders,
+});
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
 );
