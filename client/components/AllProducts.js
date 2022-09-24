@@ -7,8 +7,13 @@ import { me } from "../store/auth";
 export class AllProducts extends React.Component {
   constructor(props) {
     super(props);
+
+    this.addToCart = this.addToCart.bind(this);
   }
 
+  addToCart() {
+    console.log("hi");
+  }
   componentDidMount() {
     this.props.getProducts();
     this.props.currentUserData();
@@ -53,8 +58,10 @@ export class AllProducts extends React.Component {
                         <h2>{product.name}</h2>
                         <h3>{product.price}</h3>
                         <div className="likeArea">
-                          <button class="add">Add to Cart</button>
-                          <button class="like">
+                          <button className="add" onClick={this.addToCart}>
+                            Add to Cart
+                          </button>
+                          <button className="like">
                             <span>♥</span>
                           </button>
                         </div>

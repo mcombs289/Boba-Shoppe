@@ -9,7 +9,7 @@ export class AdminProfileView extends React.Component {
   }
 
   render() {
-    const user = this.props.user || {};
+    const user = this.props.user[0] || {};
     console.log("PRops: ", this.props);
 
     console.log("USER: ", this.props.user[0]);
