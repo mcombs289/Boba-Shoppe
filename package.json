@@ -4,7 +4,7 @@
   "description": "Some boilerplate code to get you started - get shakin'!",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js",
+    "devStart": "nodemon cart.js",
     "build": "webpack",
     "build:dev": "npm run build -- --watch --mode=development",
     "seed": "node script/seed.js",
@@ -29,6 +29,7 @@
     "dotenv": "^16.0.2",
     "ejs": "^3.1.8",
     "express": "^4.16.4",
+    "express-session": "^1.17.3",
     "history": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",

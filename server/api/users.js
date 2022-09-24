@@ -7,7 +7,7 @@ const {
 module.exports = router;
 
 const usersOnly = (req, res, next) => {
-  if (!req.user) {
+  if (!req.params.username) {
     const err = new Error("Action not allowed while logged out");
     err.status = 401;
     return next(err);
