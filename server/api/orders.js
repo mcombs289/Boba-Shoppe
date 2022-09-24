@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-//post a order
+//post an order
 router.post("/", async (req, res, next) => {
   try {
     res.status(201).send(await Order.create(req.body));

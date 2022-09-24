@@ -8,9 +8,13 @@ import AllProducts from "./components/AllProducts";
 import Product from "./components/Product";
 import AllUsers from "./components/AllUsers";
 import Profile from "./components/Profile";
+<<<<<<< HEAD
 import AdminProfileView from "./components/AdminProfileView";
 import Cart from "./components/Cart";
 
+=======
+import CheckoutForm from "./components/CheckoutForm";
+>>>>>>> main
 /**
  * COMPONENT
  */
@@ -33,6 +37,7 @@ class Routes extends Component {
             <Route exact path="/users" component={AllUsers} />
             <Route exact path="/users/:username" component={AdminProfileView} />
             <Route exact path="/cart" component={Cart} />
+            <Route exact path="/checkout" component={CheckoutForm} />
           </Switch>
         ) : (
           <Switch>
