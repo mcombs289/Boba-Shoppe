@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchUser } from "../redux/user";
-import { Link } from "react-router-dom";
 import { EditUser } from "./EditUser";
 
 export class Profile extends React.Component {
