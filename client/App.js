@@ -2,7 +2,6 @@ import React from "react";
 
 import Navbar from "./components/Navbar";
 import Routes from "./Routes";
-import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(
@@ -13,7 +12,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Routes />
+      <Routes class="everythingButNav" />
     </div>
   );
 };
