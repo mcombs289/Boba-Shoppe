@@ -1,15 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+import { authenticate } from "../../server/db/models/User";
 import { fetchEditedUser, fetchUser } from "../redux/user";
 
-export class EditUser extends React.Component {
+export class EditProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      username: "",
+      user: {},
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,8 +16,8 @@ export class EditUser extends React.Component {
   componentDidMount() {
     console.log("EDIT STUDENT: ", this.props);
     //const username = this.props.match.params.username;
-    // const username = this.props.match.params.username;
-    // this.props.setUser(username);
+    const username = this.props.match.params.username;
+    this.props.setUser(username);
   }
 
   handleChange(event) {
@@ -92,7 +90,7 @@ const refreshPage = () => {
 
 const mapState = (state) => {
   return {
-    user: state.user,
+    user: auth.user,
   };
 };
 
@@ -103,4 +101,4 @@ const mapDispatch = (dispatch, { history }) => {
   };
 };
 
-export default connect(mapState, mapDispatch)(EditUser);
+export default connect(mapState, mapDispatch)(EditProfile);
