@@ -2,9 +2,10 @@ const router = require("express").Router();
 
 const {
   models: { User },
+  models: { Order },
   models: { Product },
 } = require("../db");
-const Order = require("../db/models/Order");
+
 module.exports = router;
 
 //api/users
@@ -40,6 +41,18 @@ router.get("/:username", async (req, res, next) => {
         username: req.params.username,
       },
       include: [Order],
+    });
+    res.json(user);
+  } catch (err) {
+    next(err);
+  }
+});
+
+//only return Unfulfilled orders
+router.get("/id/:id", async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id, {
+      include: [{ model: Order, where: { isFulfilled: false } }],
     });
     res.json(user);
   } catch (err) {

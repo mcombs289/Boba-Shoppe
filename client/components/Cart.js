@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchUser } from "../redux/user";
+import { fetchUserById } from "../redux/user";
 
 export class Cart extends React.Component {
   componentDidMount() {
-    this.props.setUser(this.props.user.username);
+    this.props.setUser(this.props.user.id);
   }
   render() {
-    console.log(this);
+    console.log(this.props.user);
 
     return <div>hello</div>;
   }
@@ -20,7 +20,7 @@ const mapState = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  setUser: (id) => dispatch(fetchUser(id)),
+  setUser: (id) => dispatch(fetchUserById(id)),
 });
 
 export default connect(mapState, mapDispatchToProps)(Cart);
