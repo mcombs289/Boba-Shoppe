@@ -8,13 +8,10 @@ import AllProducts from "./components/AllProducts";
 import Product from "./components/Product";
 import AllUsers from "./components/AllUsers";
 import Profile from "./components/Profile";
-<<<<<<< HEAD
 import AdminProfileView from "./components/AdminProfileView";
 import Cart from "./components/Cart";
 
-=======
 import CheckoutForm from "./components/CheckoutForm";
->>>>>>> main
 /**
  * COMPONENT
  */
