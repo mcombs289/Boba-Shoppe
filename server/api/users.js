@@ -39,7 +39,7 @@ router.get("/:username", async (req, res, next) => {
       where: {
         username: req.params.username,
       },
-      include: [Product],
+      include: [Order],
     });
     res.json(user);
   } catch (err) {
