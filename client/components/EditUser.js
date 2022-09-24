@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchEditedUser } from "../redux/user";
+import { fetchEditedUser, fetchUser } from "../redux/user";
 
 export class EditUser extends React.Component {
   constructor(props) {
@@ -16,8 +16,9 @@ export class EditUser extends React.Component {
   }
 
   componentDidMount() {
-    const username = this.props.match.params.username;
-    this.props.setUser(username);
+    console.log("EDIT STUDENT: ", this.props.user);
+    //const username = this.props.match.params.username;
+    //this.props.setUser(username);
   }
 
   handleChange(event) {
@@ -36,7 +37,7 @@ export class EditUser extends React.Component {
     const { handleChange, handleSubmit } = this;
     return (
       <div>
-        <form onSubmit={handleSubmit}>
+        <form className="edit-form" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="firstName"> First Name: </label>
             <input name="firstName" onChange={handleChange} value={firstName} />

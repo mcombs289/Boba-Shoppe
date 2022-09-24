@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchUser } from "../redux/user";
+import EditUser from "./EditUser";
 
 export class AdminProfileView extends React.Component {
   componentDidMount() {
@@ -30,13 +31,13 @@ export class AdminProfileView extends React.Component {
             </h3>
             <h3>Email: {user.email}</h3>
             <h3>username: {user.username}</h3>
+            <EditUser />
           </div>
           <div>
             <img src={user.imageUrl} alt="image" />
             <button>Edit Profile Pic</button>
           </div>
         </div>
-        {/* <EditUser /> */}
       </div>
     );
   }
