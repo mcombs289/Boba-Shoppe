@@ -9,6 +9,7 @@ import Product from "./components/Product";
 import AllUsers from "./components/AllUsers";
 
 import Profile from "./components/Profile";
+import CheckoutForm from "./components/CheckoutForm";
 /**
  * COMPONENT
  */
@@ -29,6 +30,7 @@ class Routes extends Component {
             <Route exact path="/products/" component={AllProducts} />
             <Route exact path="/products/:id" component={Product} />
             <Route exact path="/users" component={AllUsers} />
+            <Route exact path="/checkout" component={CheckoutForm} />
           </Switch>
         ) : (
           <Switch>
