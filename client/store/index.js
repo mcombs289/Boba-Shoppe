@@ -6,8 +6,9 @@ import auth from "./auth";
 import products from "../redux/products";
 import product from "../redux/singleProduct";
 import users from "../redux/users";
+import user from "../redux/user";
 
-const reducer = combineReducers({ auth, products, product, users });
+const reducer = combineReducers({ auth, products, product, users, user });
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
 );

@@ -37,7 +37,7 @@ const adminsOnly = (req, res, next) => {
 };
 
 //api/users
-router.get("/", usersOnly, async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const users = await User.findAll({
       // explicitly select only the id and username fields - even though
@@ -76,22 +76,24 @@ router.get("/:username", usersOnly, async (req, res, next) => {
   }
 });
 
-//delete a specific user
-router.delete("/:userId", usersOnly, adminsOnly, async (req, res, next) => {
+//edit a user - will be for user to edit their own log in
+router.put("/:username", async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.userId);
-    await user.destroy();
-    res.send(user);
+    const user = await User.findOne({
+      where: { username: req.params.username },
+    });
+    res.send(await user.update(req.body));
   } catch (error) {
     next(error);
   }
 });
 
-//edit a user - will be for user to edit their own log in
-router.put("/:userId", usersOnly, adminsOnly, async (req, res, next) => {
+//delete a specific user
+router.delete("/:id", async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.userId);
-    res.send(await user.update(req.body));
+    const user = await User.findByPk(req.params.id);
+    await user.destroy();
+    res.json(user);
   } catch (error) {
     next(error);
   }

@@ -62,18 +62,18 @@ router.get("/:id", async (req, res, next) => {
 });
 
 //delete a specific product - admins only
-router.delete("/:id", usersOnly, adminsOnly, async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.id);
     await product.destroy();
-    res.send(product);
+    res.json(product);
   } catch (error) {
     next(error);
   }
 });
 
 //edit a product - will be for admins
-router.put("/:id", usersOnly, adminsOnly, async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.id);
     res.send(await product.update(req.body));

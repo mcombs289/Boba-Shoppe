@@ -1,44 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchUser } from "../redux/user";
-import EditProfile from "./EditProfile";
+import EditUser from "./EditUser";
 
-export class Profile extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: {},
-    };
-  }
-
+export class AdminProfileView extends React.Component {
   componentDidMount() {
     const username = this.props.match.params.username;
     this.props.setUser(username);
   }
 
   render() {
-    const user = this.props.user || {};
+    const user = this.props.user[0] || {};
+
     return (
       <div className="profileContainer">
         <div className="leftDiv">
           <h1>{user.firstName}'s Account</h1>
           <hr align="left" width="80%" color="black"></hr>
           <div className="tab">
-            <div>
-              <button type="submit">Account Information</button>
-            </div>
-            <div>
-              <button>My Orders</button>
-            </div>
-            <div>
-              <button>My Wishlist</button>
-            </div>
-            <div>
-              <button>Password Reset</button>
-            </div>
-            <div>
-              <button>Address & Payments</button>
-            </div>
+            <br />
+            <button>Account Information</button>
+            <button>Order History</button>
           </div>
         </div>
         <div className="rightDiv">
@@ -49,9 +31,8 @@ export class Profile extends React.Component {
             </h3>
             <h3>Email: {user.email}</h3>
             <h3>username: {user.username}</h3>
-            <EditProfile />
+            <EditUser />
           </div>
-
           <div>
             <img src={user.imageUrl} alt="image" />
             <button>Edit Profile Pic</button>
@@ -64,7 +45,7 @@ export class Profile extends React.Component {
 
 const mapState = (state) => {
   return {
-    user: state.auth,
+    user: state.user,
   };
 };
 
@@ -74,4 +55,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapState, mapDispatchToProps)(Profile);
+export default connect(mapState, mapDispatchToProps)(AdminProfileView);
