@@ -1,0 +1,32 @@
+.cart{ 
+    background-color: white;
+    padding: 2%;
+    margin: 5%
+}
+
+.cart .product{
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+}
+
+.cart .productInfo {
+    padding-left: 2%;
+}
+
+.cart .price{ 
+    margin-right: 0px;
+    margin-left: auto;
+
+}
+
+.cart img {
+   border-radius: 0px;
+}
+
+.cart .quantSelector{  
+    margin-right: 0px;
+    margin-left: auto;
+    height: 2%;
+    margin-top: 2%;
+}

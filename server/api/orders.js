@@ -2,6 +2,7 @@ const router = require("express").Router();
 const {
   models: { Order },
   models: { User },
+  models: { Product },
 } = require("../db");
 
 //api/orders
@@ -26,11 +27,12 @@ router.post("/", async (req, res, next) => {
 //returns orders for a single user and that are not fulfilled
 router.get("/user/:userId", async (req, res, next) => {
   try {
-    const order = await Order.findAll({
+    const order = await Order.findOne({
       where: {
         userId: req.params.userId,
         isFulfilled: false,
       },
+      include: [Product],
     });
     res.json(order);
   } catch (err) {

@@ -10,7 +10,9 @@ const Order_Products = require("./models/OrderProducts");
 User.belongsToMany(Product, { through: "userProducts" });
 Product.belongsToMany(User, { through: "userProducts" });
 
-Order.belongsToMany(Product, { through: Order_Products });
+Order.belongsToMany(Product, {
+  through: Order_Products,
+});
 Product.belongsToMany(Order, { through: Order_Products });
 
 User.hasMany(Order);
