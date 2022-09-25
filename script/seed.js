@@ -118,14 +118,18 @@ async function seed() {
 
   //assingning a user to order using magic method
   await orders[0].setUser(users[1]);
-
-  //adding a user to a product belonggs to many
-  await users[0].addProduct(products[0], { through: "userProducts" });
-  await users[1].addProduct(products[0], { through: "userProducts" });
+  await orders[1].setUser(users[2]);
+  await orders[2].setUser(users[2]);
 
   //adding a user to a product belonggs to many
   await orders[0].addProduct(products[0], { through: "Order_Products" });
-  await orders[1].addProduct(products[0], { through: "Order_Products" });
+  await orders[0].addProduct(products[1], { through: "Order_Products" });
+
+  await orders[1].addProduct(products[2], { through: "Order_Products" });
+  await orders[1].addProduct(products[3], { through: "Order_Products" });
+
+  await orders[2].addProduct(products[1], { through: "Order_Products" });
+  await orders[2].addProduct(products[3], { through: "Order_Products" });
 
   console.log(
     `seeded ${users.length} users && ${products.length} products && ${orders.length} orders`
