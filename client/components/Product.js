@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchProduct } from "../redux/singleProduct";
 import { Link } from "react-router-dom";
+import { me } from "../store/auth";
+import EditProduct from "./EditProduct";
 
 class Product extends React.Component {
   constructor(props) {
@@ -10,11 +12,29 @@ class Product extends React.Component {
 
   componentDidMount() {
     this.props.fetchProduct(this.props.match.params.id);
+    this.props.currentUserData();
   }
 
   render() {
     const { product } = this.props;
-    return (
+    const isAdmin = this.props.isAdmin;
+
+    return isAdmin ? (
+      <div className="container">
+        <div className="card" key={product.id}>
+          <h2 className="title">{product.name}</h2>
+          <div className="img-card">
+            <img className="img" src={product.imageUrl} />
+          </div>
+          <div className="info-card">
+            <EditProduct />
+            <Link to="/home">
+              <button>Back to Home</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    ) : (
       <div className="container">
         <div className="card" key={product.id}>
           <h2 className="title">{product.name}</h2>
@@ -38,12 +58,16 @@ class Product extends React.Component {
   }
 }
 
-const mapStateToProps = ({ product }) => ({
-  product,
+const mapStateToProps = (state) => ({
+  product: state.product,
+  isAdmin: state.auth.adminAccess,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchProduct: (id) => dispatch(fetchProduct(id)),
+  currentUserData() {
+    dispatch(me());
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchUser } from "../redux/user";
-import { EditUser } from "./EditUser";
+import EditProfile from "./EditProfile";
 
 export class Profile extends React.Component {
   constructor(props) {
@@ -25,9 +25,7 @@ export class Profile extends React.Component {
           <hr align="left" width="80%" color="black"></hr>
           <div className="tab">
             <div>
-              <button onClick={() => <EditUser />} type="submit">
-                Account Information
-              </button>
+              <button type="submit">Account Information</button>
             </div>
             <div>
               <button>My Orders</button>
@@ -51,7 +49,7 @@ export class Profile extends React.Component {
             </h3>
             <h3>Email: {user.email}</h3>
             <h3>username: {user.username}</h3>
-            <EditUser user={user} />
+            <EditProfile />
           </div>
 
           <div>

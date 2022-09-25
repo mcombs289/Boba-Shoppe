@@ -89,11 +89,11 @@ router.put("/:username", async (req, res, next) => {
 });
 
 //delete a specific user
-router.delete("/:id", usersOnly, adminsOnly, async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id);
     await user.destroy();
-    res.send("USER: ", user);
+    res.json(user);
   } catch (error) {
     next(error);
   }

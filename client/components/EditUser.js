@@ -15,12 +15,12 @@ export class EditUser extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    console.log("EDIT STUDENT: ", this.props);
-    //const username = this.props.match.params.username;
-    // const username = this.props.match.params.username;
-    // this.props.setUser(username);
-  }
+  // componentDidMount() {
+  //   console.log("EDIT STUDENT: ", this.props);
+  //   //const username = this.props.match.params.username;
+  //   // const username = this.props.match.params.username;
+  //   // this.props.setUser(username);
+  // }
 
   handleChange(event) {
     this.setState({
@@ -76,19 +76,13 @@ export class EditUser extends React.Component {
             />
           </div>
           <div>
-            <button onClick={refreshPage} type="submit">
-              Update
-            </button>
+            <button type="submit">Update</button>
           </div>
         </form>
       </div>
     );
   }
 }
-
-const refreshPage = () => {
-  window.location.reload(false);
-};
 
 const mapState = (state) => {
   return {
