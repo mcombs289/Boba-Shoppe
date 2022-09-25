@@ -1,17 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchUser } from "../redux/user";
-import { Link } from "react-router-dom";
-import { EditUser } from "./EditUser";
+import EditProfile from "./EditProfile";
 
 export class Profile extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   console.log("my props", props);
-  //   this.state = {
-  //     user: {},
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {},
+    };
+  }
 
   componentDidMount() {
     const username = this.props.match.params.username;
@@ -20,22 +18,27 @@ export class Profile extends React.Component {
 
   render() {
     const user = this.props.user || {};
-    console.log("PRops: ", this.props);
-    //console.log("PRINT: ", this.props.user[0]);
-    console.log("USER: ", this.props.user[0]);
-    //let user = this.props.user[0];
-    console.log(Object.values({ user }));
     return (
       <div className="profileContainer">
         <div className="leftDiv">
           <h1>{user.firstName}'s Account</h1>
           <hr align="left" width="80%" color="black"></hr>
           <div className="tab">
-            <button>Account Information</button>
-            <button>My Orders</button>
-            <button>My Wishlist</button>
-            <button>Password Reset</button>
-            <button>Address & Payments</button>
+            <div>
+              <button type="submit">Account Information</button>
+            </div>
+            <div>
+              <button>My Orders</button>
+            </div>
+            <div>
+              <button>My Wishlist</button>
+            </div>
+            <div>
+              <button>Password Reset</button>
+            </div>
+            <div>
+              <button>Address & Payments</button>
+            </div>
           </div>
         </div>
         <div className="rightDiv">
@@ -46,13 +49,14 @@ export class Profile extends React.Component {
             </h3>
             <h3>Email: {user.email}</h3>
             <h3>username: {user.username}</h3>
+            <EditProfile />
           </div>
+
           <div>
             <img src={user.imageUrl} alt="image" />
             <button>Edit Profile Pic</button>
           </div>
         </div>
-        {/* <EditUser /> */}
       </div>
     );
   }
@@ -60,9 +64,7 @@ export class Profile extends React.Component {
 
 const mapState = (state) => {
   return {
-    //singleUser: state.user,
     user: state.auth,
-    //user: state.user,
   };
 };
 

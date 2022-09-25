@@ -31,7 +31,7 @@ export const fetchUsers = () => {
   };
 };
 
-export const fetchDeletedUser = (id) => {
+export const fetchDeletedUser = (id, history) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.delete(`/api/users/${id}`);

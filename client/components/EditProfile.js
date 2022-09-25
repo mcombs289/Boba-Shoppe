@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchEditedUser, fetchUser } from "../redux/user";
 
-export class EditUser extends React.Component {
+export class EditProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -86,7 +86,7 @@ export class EditUser extends React.Component {
 
 const mapState = (state) => {
   return {
-    user: state.user,
+    user: state.auth,
   };
 };
 
@@ -97,4 +97,4 @@ const mapDispatch = (dispatch, { history }) => {
   };
 };
 
-export default connect(mapState, mapDispatch)(EditUser);
+export default connect(mapState, mapDispatch)(EditProfile);

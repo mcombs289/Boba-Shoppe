@@ -31,11 +31,12 @@ export const fetchUser = (username) => {
   };
 };
 
-export const fetchEditedUser = (user) => {
+export const fetchEditedUser = (user, history) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.put(`/api/users/${user.username}`, user);
       dispatch(editUser(data));
+      history.push(`users/${user.username}`);
     } catch (error) {
       return error;
     }

@@ -10,16 +10,28 @@ const LogIn = (props) => {
 
   return (
     <div className="authPage">
-      <form onSubmit={handleSubmit} name={name}>
-        <h1>LOG IN</h1>
+      <form className="form-body" onSubmit={handleSubmit} name={name}>
+        <h1 className="form-h1">LOG IN</h1>
         <div>
-          <input name="username" placeholder="User name" type="text" />
+          <input
+            className="form-input"
+            name="username"
+            placeholder="User name"
+            type="text"
+          />
         </div>
         <div>
-          <input name="password" placeholder="password" type="password" />
+          <input
+            className="form-input"
+            name="password"
+            placeholder="password"
+            type="password"
+          />
         </div>
         <div>
-          <button type="submit">{displayName}</button>
+          <button className="form-button" type="submit">
+            {displayName}
+          </button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
         <br></br>
@@ -39,25 +51,52 @@ const SignUp = (props) => {
 
   return (
     <div className="authPage">
-      <form onSubmit={handleSubmit} name={name}>
-        <h1>SIGN UP</h1>
+      <form className="form-body" onSubmit={handleSubmit} name={name}>
+        <h1 className="form-h1">SIGN UP</h1>
         <div>
-          <input name="username" placeholder="username" type="text" />
+          <input
+            className="form-input"
+            name="username"
+            placeholder="username"
+            type="text"
+          />
         </div>
         <div>
-          <input name="password" placeholder="password" type="password" />
+          <input
+            className="form-input"
+            name="password"
+            placeholder="password"
+            type="password"
+          />
         </div>
         <div>
-          <input name="firstname" placeholder="First Name" type="text" />
+          <input
+            className="form-input"
+            name="firstname"
+            placeholder="First Name"
+            type="text"
+          />
         </div>
         <div>
-          <input name="lastname" placeholder="Last Name" type="text" />
+          <input
+            className="form-input"
+            name="lastname"
+            placeholder="Last Name"
+            type="text"
+          />
         </div>
         <div>
-          <input name="email" placeholder="email" type="email" />
+          <input
+            className="form-input"
+            name="email"
+            placeholder="email"
+            type="email"
+          />
         </div>
         <div>
-          <button type="submit">{displayName}</button>
+          <button className="form-button" type="submit">
+            {displayName}
+          </button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>

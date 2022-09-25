@@ -1,9 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchUser } from "../redux/user";
 import { fetchDeletedUser, fetchUsers } from "../redux/users";
-import Profile from "./Profile";
 import { me } from "../store/auth";
 
 export class AllUsers extends React.Component {
@@ -71,7 +69,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(me());
   },
   deleteUser: (id) => dispatch(fetchDeletedUser(id)),
-  setUser: (username) => dispatch(fetchUser(username)),
+  //setUser: (username) => dispatch(fetchUser(username)),
 });
 
 export default connect(mapState, mapDispatchToProps)(AllUsers);

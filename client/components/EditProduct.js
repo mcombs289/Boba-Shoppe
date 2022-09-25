@@ -1,15 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchEditedUser, fetchUser } from "../redux/user";
+import { fetchEditedProduct, fetchProduct } from "../redux/singleProduct";
 
 export class EditUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      username: "",
+      name: "",
+      price: "",
+      description: "",
+      quantity: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,48 +30,43 @@ export class EditUser extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.editUser({ ...this.props.user, ...this.state });
+    this.props.editProduct({ ...this.props.product, ...this.state });
   }
 
   render() {
-    const { firstName, lastName, email, username } = this.state;
+    const { name, price, description, quantity } = this.state;
     const { handleChange, handleSubmit } = this;
     return (
       <div>
         <form className="edit-form" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="firstName"> First Name: </label>
+            <label htmlFor="name"> Name: </label>
+            <input name="name" onChange={handleChange} value={name} required />
+          </div>
+          <div>
+            <label htmlFor="price"> Price: </label>
             <input
-              name="firstName"
+              name="price"
               onChange={handleChange}
-              value={firstName}
+              value={price}
               required
             />
           </div>
           <div>
-            <label htmlFor="lastName"> Last Name: </label>
+            <label htmlFor="quantity"> Quantity: </label>
             <input
-              name="lastName"
+              name="quantity"
               onChange={handleChange}
-              value={lastName}
+              value={quantity}
               required
             />
           </div>
           <div>
-            <label htmlFor="email"> Email: </label>
+            <label htmlFor="description"> Description: </label>
             <input
-              name="email"
+              name="description"
               onChange={handleChange}
-              value={email}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="username"> Username: </label>
-            <input
-              name="username"
-              onChange={handleChange}
-              value={username}
+              value={description}
               required
             />
           </div>
@@ -86,14 +81,14 @@ export class EditUser extends React.Component {
 
 const mapState = (state) => {
   return {
-    user: state.user,
+    product: state.product,
   };
 };
 
 const mapDispatch = (dispatch, { history }) => {
   return {
-    editUser: (user) => dispatch(fetchEditedUser(user, history)),
-    setUser: (username) => dispatch(fetchUser(username)),
+    editProduct: (product) => dispatch(fetchEditedProduct(product, history)),
+    setProduct: (id) => dispatch(fetchProduct(id)),
   };
 };
 

@@ -10,7 +10,6 @@ import AllUsers from "./components/AllUsers";
 import Profile from "./components/Profile";
 import AdminProfileView from "./components/AdminProfileView";
 import Cart from "./components/Cart";
-
 import CheckoutForm from "./components/CheckoutForm";
 /**
  * COMPONENT
