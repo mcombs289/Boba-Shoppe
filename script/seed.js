@@ -101,25 +101,35 @@ async function seed() {
   const orders = await Promise.all([
     Order.create({
       isFulfilled: false,
-      userId: 1,
     }),
     Order.create({
       isFulfilled: true,
-      userId: 2,
     }),
     Order.create({
       isFulfilled: false,
-      userId: 3,
     }),
     Order.create({
       isFulfilled: true,
-      userId: 4,
     }),
     Order.create({
       isFulfilled: false,
-      userId: 4,
     }),
   ]);
+
+  //assingning a user to order using magic method
+  await orders[0].setUser(users[1]);
+  await orders[1].setUser(users[2]);
+  await orders[2].setUser(users[2]);
+
+  //adding a user to a product belonggs to many
+  await orders[0].addProduct(products[0], { through: "Order_Products" });
+  await orders[0].addProduct(products[1], { through: "Order_Products" });
+
+  await orders[1].addProduct(products[2], { through: "Order_Products" });
+  await orders[1].addProduct(products[3], { through: "Order_Products" });
+
+  await orders[2].addProduct(products[1], { through: "Order_Products" });
+  await orders[2].addProduct(products[3], { through: "Order_Products" });
 
   console.log(
     `seeded ${users.length} users && ${products.length} products && ${orders.length} orders`

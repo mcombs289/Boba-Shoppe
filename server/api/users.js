@@ -2,9 +2,10 @@ const router = require("express").Router();
 
 const {
   models: { User },
+  models: { Order },
   models: { Product },
 } = require("../db");
-const Order = require("../db/models/Order");
+
 module.exports = router;
 
 const usersOnly = (req, res, next) => {
@@ -68,8 +69,18 @@ router.get("/:username", usersOnly, async (req, res, next) => {
       where: {
         username: req.params.username,
       },
-      include: [Product],
+      include: [Order],
     });
+    res.json(user);
+  } catch (err) {
+    next(err);
+  }
+});
+
+//delete a specific user
+router.delete("/:userId", usersOnly, adminsOnly, async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id);
     res.json(user);
   } catch (err) {
     next(err);
