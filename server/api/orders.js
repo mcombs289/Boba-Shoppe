@@ -7,7 +7,7 @@ const {
 //api/orders
 router.get("/", async (req, res, next) => {
   try {
-    const orders = await Order.findAll();
+    const orders = await Order.findAll({ include: [User] });
     res.json(orders);
   } catch (err) {
     next(err);
@@ -23,12 +23,13 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-//returns orders for a single user
+//returns orders for a single user and that are not fulfilled
 router.get("/user/:userId", async (req, res, next) => {
   try {
     const order = await Order.findAll({
       where: {
         userId: req.params.userId,
+        isFulfilled: false,
       },
     });
     res.json(order);
