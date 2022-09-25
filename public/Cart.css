@@ -1,7 +1,12 @@
 .cart{ 
     background-color: white;
     padding: 2%;
-    margin: 5%
+    margin: 5%;
+}
+
+.cart .cartInfo{
+    display: flex;
+    flex-direction: row;
 }
 
 .cart .product{
@@ -24,9 +29,21 @@
    border-radius: 0px;
 }
 
+.cart .orderSummary{ 
+    border: 1px solid black;
+    width: 30%;
+    margin-left: 2%;
+    margin-top: 2%;
+    padding-left: 2%
+
+}
 .cart .quantSelector{  
     margin-right: 0px;
     margin-left: auto;
     height: 2%;
     margin-top: 2%;
+}
+
+.cart .productsInCart{
+    width: 70%;
 }
