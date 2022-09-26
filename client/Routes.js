@@ -11,6 +11,7 @@ import Profile from "./components/Profile";
 import AdminProfileView from "./components/AdminProfileView";
 import Cart from "./components/Cart";
 import CheckoutForm from "./components/CheckoutForm";
+import Fruit from "./components/Bobas/Fruit";
 /**
  * COMPONENT
  */
@@ -34,6 +35,7 @@ class Routes extends Component {
             <Route exact path="/users/:username" component={AdminProfileView} />
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/checkout" component={CheckoutForm} />
+            <Route exact path="/Fruit" component={Fruit} />
           </Switch>
         ) : (
           <Switch>
@@ -43,6 +45,7 @@ class Routes extends Component {
             <Route exact path="/products/" component={AllProducts} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/signup" component={Signup} />
+            <Route exact path="/Fruit" component={Fruit} />
           </Switch>
         )}
       </div>

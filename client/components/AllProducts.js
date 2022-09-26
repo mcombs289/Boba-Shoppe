@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchDeletedProduct, fetchProducts } from "../redux/products";
 import { me } from "../store/auth";
+import Category from "./Category";
 
 export class AllProducts extends React.Component {
   constructor(props) {
@@ -21,61 +22,68 @@ export class AllProducts extends React.Component {
 
   render() {
     const products = this.props.products || [];
+    console.log(products);
     const isAdmin = this.props.isAdmin;
 
     return isAdmin ? (
-      <div id="allItems">
-        <div className="itemContainer">
-          {products.length
-            ? products.map((product) => {
-                return (
-                  <div id="singleItem" key={product.id}>
-                    <div className="productDisplayCard">
-                      <Link to={`/products/${product.id}`}>
-                        <img src={product.imageUrl} alt="image" />
-                        <h2>{product.name}</h2>
-                        <h3>${product.price}</h3>
-                        <button>Edit</button>
-                      </Link>
-                      <button
-                        onClick={() => this.props.deleteProduct(product.id)}
-                        type="submit"
-                      >
-                        Delete
-                      </button>
+      <div>
+        <Category />
+        <div id="allItems">
+          <div className="itemContainer">
+            {products.length
+              ? products.map((product) => {
+                  return (
+                    <div id="singleItem" key={product.id}>
+                      <div className="productDisplayCard">
+                        <Link to={`/products/${product.id}`}>
+                          <img src={product.imageUrl} alt="image" />
+                          <h2>{product.name}</h2>
+                          <h3>${product.price}</h3>
+                          <button>Edit</button>
+                        </Link>
+                        <button
+                          onClick={() => this.props.deleteProduct(product.id)}
+                          type="submit"
+                        >
+                          Delete
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                );
-              })
-            : null}
+                  );
+                })
+              : null}
+          </div>
         </div>
       </div>
     ) : (
-      <div id="allItems">
-        <div className="itemContainer">
-          {products.length
-            ? products.map((product) => {
-                return (
-                  <div id="singleItem" key={product.id}>
-                    <div className="productDisplayCard">
-                      <Link to={`/products/${product.id}`}>
-                        <img src={product.imageUrl} alt="image" />
-                        <h2>{product.name}</h2>
-                        <h3>{product.price}</h3>
-                        <div className="likeArea">
-                          <button className="add" onClick={this.addToCart}>
-                            Add to Cart
-                          </button>
-                          <button className="like">
-                            <span>♥</span>
-                          </button>
-                        </div>
-                      </Link>
+      <div>
+        <Category />
+        <div id="allItems">
+          <div className="itemContainer">
+            {products.length
+              ? products.map((product) => {
+                  return (
+                    <div id="singleItem" key={product.id}>
+                      <div className="productDisplayCard">
+                        <Link to={`/products/${product.id}`}>
+                          <img src={product.imageUrl} alt="image" />
+                          <h2>{product.name}</h2>
+                          <h3>{product.price}</h3>
+                          <div className="likeArea">
+                            <button className="add" onClick={this.addToCart}>
+                              Add to Cart
+                            </button>
+                            <button className="like">
+                              <span>♥</span>
+                            </button>
+                          </div>
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                );
-              })
-            : null}
+                  );
+                })
+              : null}
+          </div>
         </div>
       </div>
     );
