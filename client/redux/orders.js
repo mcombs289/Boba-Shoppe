@@ -43,23 +43,6 @@ export const fetchOrder = (orderId) => {
   };
 };
 
-export const deleteProductFromOrder = (thunkInfo) => {
-  let orderId = thunkInfo[0];
-  let productId = thunkInfo[1];
-
-  return async (dispatch) => {
-    try {
-      const { data: order } = await axios.get(`/api/orders/${orderId}`);
-      const { data: product } = await axios.get(`/api/products/${productId}`);
-
-      console.log("order", order);
-      console.log("product", product);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-};
-
 // REDUCER
 export default function ordersReducer(state = [], action) {
   switch (action.type) {

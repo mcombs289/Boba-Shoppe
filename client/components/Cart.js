@@ -1,22 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchOrdersByUser, deleteProductFromOrder } from "../redux/orders";
+import { fetchOrdersByUser } from "../redux/orders";
+import { deleteOrderProductThunk } from "../redux/orderProducts";
 
 export class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.removeFromCart = this.removeFromCart.bind(this);
   }
+
   componentDidMount() {
     this.props.getOrders(this.props.user.id);
   }
 
-  removeFromCart(id) {
-    let thunkArray = [];
-    thunkArray.push(this.props.orders.id);
-    thunkArray.push(id);
-    this.props.deleteProduct(thunkArray);
-  }
   render() {
     let { orders } = this.props || [];
     let products = orders.products || [];
@@ -59,7 +54,10 @@ export class Cart extends React.Component {
                             <h5
                               className="remove"
                               onClick={() => {
-                                this.removeFromCart(product.id);
+                                let thunkInfo = [];
+                                thunkInfo.push(orders.id);
+                                thunkInfo.push(product.id);
+                                this.props.deleteOrderProduct(thunkInfo);
                               }}
                             >
                               Remove
@@ -95,7 +93,8 @@ const mapState = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getOrders: (userId) => dispatch(fetchOrdersByUser(userId)),
-    deleteProduct: (orderId) => dispatch(deleteProductFromOrder(orderId)),
+    deleteOrderProduct: (thunkInfo) =>
+      dispatch(deleteOrderProductThunk(thunkInfo)),
   };
 };
 

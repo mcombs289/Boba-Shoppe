@@ -13,4 +13,21 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+//api/ordersProducts/
+router.delete("/:orderId/:productId", async (req, res, next) => {
+  console.log("in API");
+  try {
+    const order = await Order.findAll({
+      where: {
+        orderId: req.params.orderId,
+        productId: req.params.productId,
+      },
+    });
+    await order.destroy();
+    res.send(order);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
