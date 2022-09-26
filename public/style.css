@@ -1,11 +1,11 @@
 body {
+  margin-top: 15rem;
   font-family: sans-serif;
   background-image: url('/images/background.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
-
 
 a {
   text-decoration: none;
