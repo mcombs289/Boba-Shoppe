@@ -35,6 +35,14 @@ export class AllProducts extends React.Component {
                         <img src={product.imageUrl} alt="image" />
                         <h2>{product.name}</h2>
                         <h3>${product.price}</h3>
+                        <div className="likeArea">
+                          <button className="add" onClick={this.addToCart}>
+                            Add to Cart
+                          </button>
+                          <button className="like">
+                            <span>♥</span>
+                          </button>
+                        </div>
                         <button>Edit</button>
                       </Link>
                       <button
