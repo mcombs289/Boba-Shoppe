@@ -22,6 +22,7 @@ export class AllUsers extends React.Component {
         <h2>All Users:</h2>
         <div id="itemContainer">
           {users.map((user) => {
+            console.log("user", user);
             return (
               <div id="singleItem" key={user.id}>
                 <div className="productDisplayCard">
