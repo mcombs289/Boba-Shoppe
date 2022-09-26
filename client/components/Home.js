@@ -7,11 +7,11 @@ import AllProducts from "./AllProducts";
  */
 export const Home = (props) => {
   const { username } = props;
-
+  console.log("Home: ", props);
   return (
     <div>
       <h1>{username}</h1>
-      <AllProducts />
+      <AllProducts match={props.match} />
     </div>
   );
 };
