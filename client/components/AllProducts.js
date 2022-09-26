@@ -37,7 +37,10 @@ export class AllProducts extends React.Component {
                         <h3>${product.price}</h3>
                         <button>Edit</button>
                       </Link>
-                      <button onClick={this.addToCart} type="submit">
+                      <button
+                        onClick={() => this.props.deleteProduct(product.id)}
+                        type="submit"
+                      >
                         Delete
                       </button>
                     </div>
