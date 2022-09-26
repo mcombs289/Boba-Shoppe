@@ -18,7 +18,11 @@ label {
 nav a {
   display: inline-block;
   margin: 1em;
+}
 
+.username {
+	color: white; 
+	margin-top: 10rem;
 }
 
 .NavBar{ 
