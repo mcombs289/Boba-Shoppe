@@ -20,7 +20,7 @@ export const deleteOrderProductThunk = (thunkInfo) => {
     try {
       console.log("here");
       const { data } = await axios.delete(
-        `/api/orderProducts/${orderId}/${productId}`
+        `/api/ordersProducts/${orderId}/${productId}`
       );
       console.log("data", data);
       dispatch(deleteOrderProduct(data));
@@ -33,6 +33,7 @@ export const deleteOrderProductThunk = (thunkInfo) => {
 
 // REDUCER
 export default function orderProductsReducer(state = [], action) {
+  console.log("in reducer");
   switch (action.type) {
     case DELETE_ORDER_PRODUCT:
       return state.filter((order) => order.id !== action.order.id);
