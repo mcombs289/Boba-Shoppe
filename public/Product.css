@@ -10,7 +10,6 @@
     margin-top: 50px;
     justify-items: auto;
     height: 400px;
-    box-shadow: 5px 5px 15px rosybrown;
     text-align: center;
     background-color: white;    
     padding: 2%;
@@ -74,6 +73,7 @@
     color: white;
     cursor: pointer;
     transition-duration: 1s;
+    border-radius: 10px;
 } 
 
 .category button:hover{

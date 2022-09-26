@@ -6,50 +6,48 @@ import { me } from "../store/auth";
 
 const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
   <div className="navbar-container">
-    <div className="navbar">
+    <nav className="navbar">
       Boba Shoppe
-      <nav className="AlignRight">
-        {isLoggedIn ? (
-          <div>
-            {/* The navbar will show these links after you log in */}
-            <Link to="/home">
-              <img src="/images/homeIcon.png" />
-            </Link>
-            <Link to="/profile">
+      {isLoggedIn ? (
+        <div className="link-container">
+          {/* The navbar will show these links after you log in */}
+          <Link to="/home">
+            <img src="/images/homeIcon.png" />
+          </Link>
+          <Link to="/profile">
+            <img src="/images/userIcon.png" />
+          </Link>
+          {isAdmin ? (
+            <Link to="/users">
               <img src="/images/userIcon.png" />
             </Link>
-            {isAdmin ? (
-              <Link to="/users">
-                <img src="/images/userIcon.png" />
-              </Link>
-            ) : null}
-            <Link to="/cart">
-              <img src="/images/cartIcon.png" />
-            </Link>
-            <a href="#" onClick={handleClick}>
+          ) : null}
+          <Link to="/cart">
+            <img src="/images/cartIcon.png" />
+          </Link>
+          <div className="logout-container">
+            <a href="#" onClick={handleClick} className="logout-button">
               Logout
             </a>
           </div>
-        ) : (
-          <div className="navbar-container">
-            <div className="navbar">
-              <div>
-                {/* The navbar will show these links before you log in */}
-                <Link to="/home">
-                  <img src="/images/homeIcon.png" />
-                </Link>
-                <Link to="/cart">
-                  <img src="/images/cartIcon.png" />
-                </Link>
-                <Link to="/login">
-                  <img src="/images/userIcon.png" />
-                </Link>
-              </div>
-            </div>
+        </div>
+      ) : (
+        <div className="navbar-container">
+          <div>
+            {/* The navbar will show these links before you log in */}
+            <Link to="/home">
+              <img src="/images/homeIcon.png" />
+            </Link>
+            <Link to="/cart">
+              <img src="/images/cartIcon.png" />
+            </Link>
+            <Link to="/login">
+              <img src="/images/userIcon.png" />
+            </Link>
           </div>
-        )}
-      </nav>
-    </div>
+        </div>
+      )}
+    </nav>
   </div>
 );
 
