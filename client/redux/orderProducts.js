@@ -16,16 +16,16 @@ export const deleteOrderProduct = (order) => {
 export const deleteOrderProductThunk = (thunkInfo) => {
   let orderId = thunkInfo[0];
   let productId = thunkInfo[1];
-  console.log("orderId", orderId, "productId", productId);
   return async (dispatch) => {
     try {
       console.log("here");
       const { data } = await axios.delete(
-        `/api/ordersProducts/${orderId}/${productId}`
+        `/api/orderProducts/${orderId}/${productId}`
       );
       console.log("data", data);
       dispatch(deleteOrderProduct(data));
     } catch (error) {
+      console.log("UHGHHH");
       console.log(error);
     }
   };
