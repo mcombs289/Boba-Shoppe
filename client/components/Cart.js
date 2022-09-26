@@ -8,8 +8,8 @@ export class Cart extends React.Component {
   }
   render() {
     let { orders } = this.props || [];
-    let products = orders.products || [];
-    console.log(products);
+    let products = orders?.products || [];
+    // console.log("products", products);
     return (
       <div className="cart">
         <h1>Shopping Bag</h1>
