@@ -12,18 +12,18 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
         <div className="link-container">
           {/* The navbar will show these links after you log in */}
           <Link to="/home">
-            <img src="/images/homeIcon.png" />
+            <img className="nav-icons" src="/images/homeIcon.png" />
           </Link>
           <Link to="/profile">
-            <img src="/images/userIcon.png" />
+            <img className="nav-icons" src="/images/userIcon.png" />
           </Link>
           {isAdmin ? (
             <Link to="/users">
-              <img src="/images/userIcon.png" />
+              <img className="nav-icons" src="/images/userIcon.png" />
             </Link>
           ) : null}
           <Link to="/cart">
-            <img src="/images/cartIcon.png" />
+            <img className="nav-icons" src="/images/cartIcon.png" />
           </Link>
           <div className="logout-container">
             <a href="#" onClick={handleClick} className="logout-button">
@@ -36,13 +36,13 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
           <div>
             {/* The navbar will show these links before you log in */}
             <Link to="/home">
-              <img src="/images/homeIcon.png" />
+              <img className="nav-icons" src="/images/homeIcon.png" />
             </Link>
             <Link to="/cart">
-              <img src="/images/cartIcon.png" />
+              <img className="nav-icons" src="/images/cartIcon.png" />
             </Link>
             <Link to="/login">
-              <img src="/images/userIcon.png" />
+              <img className="nav-icons" src="/images/userIcon.png" />
             </Link>
           </div>
         </div>
