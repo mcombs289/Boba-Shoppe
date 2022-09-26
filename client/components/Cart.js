@@ -15,13 +15,14 @@ export class Cart extends React.Component {
   render() {
     let { orders } = this.props || [];
     let products = orders.products || [];
+    let { user } = this.props;
 
     if (!orders) {
       return <div>empty</div>;
     } else {
       return (
         <div className="cart">
-          <h1>Shopping Bag</h1>
+          <h1>{user.firstName}'s Shopping Bag</h1>
           <hr />
           <div className="cartInfo">
             <div className="productsInCart">
