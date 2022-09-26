@@ -59,6 +59,7 @@ export class Cart extends React.Component {
                                 thunkInfo.push(orders.id);
                                 thunkInfo.push(product.id);
                                 this.props.deleteOrderProduct(thunkInfo);
+                                window.location.reload(false);
                               }}
                             >
                               Remove
