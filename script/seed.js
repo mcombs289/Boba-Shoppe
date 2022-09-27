@@ -153,23 +153,45 @@ async function seed() {
       description: "",
       category: "Sweet",
     }),
+    Product.create({
+      id: 11,
+      name: "Ube Matcha",
+      quantity: 8,
+      imageUrl: "/images/ube.png",
+      price: 6.99,
+      description: "",
+      category: "Tea",
+    }),
+    Product.create({
+      id: 12,
+      name: "Cherry Blossom ",
+      quantity: 5,
+      imageUrl: "/images/cherry.png",
+      price: 6.99,
+      description: "",
+      category: "Fruit",
+    }),
   ]);
 
   // Creating Orders
   const orders = await Promise.all([
     Order.create({
+      id: 1,
       isFulfilled: false,
       userId: 1,
     }),
     Order.create({
+      id: 2,
       isFulfilled: false,
       userId: 2,
     }),
     Order.create({
+      id: 3,
       isFulfilled: false,
       userId: 3,
     }),
     Order.create({
+      id: 4,
       isFulfilled: true,
       userId: 4,
     }),
@@ -194,20 +216,20 @@ async function seed() {
     `seeded ${users.length} users && ${products.length} products && ${orders.length} orders`
   );
   console.log(`seeded successfully`);
-  return {
-    users: {
-      abby: users[0],
-      bea: users[1],
-      zach: users[2],
-      eric: users[3],
-    },
-    products: {
-      strawberry: products[0],
-      mango: products[1],
-      chocolate: products[2],
-      matcha: products[3],
-    },
-  };
+  // return {
+  //   users: {
+  //     abby: users[0],
+  //     bea: users[1],
+  //     zach: users[2],
+  //     eric: users[3],
+  //   },
+  //   products: {
+  //     strawberry: products[0],
+  //     mango: products[1],
+  //     chocolate: products[2],
+  //     matcha: products[3],
+  //   },
+  // };
 }
 
 /*
