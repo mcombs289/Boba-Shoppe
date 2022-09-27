@@ -91,7 +91,6 @@ export class AllProducts extends React.Component {
                           <button
                             className="add"
                             onClick={() => {
-                              console.log("user Order", user.currentOrder);
                               this.addToCart(product.id, user.currentOrder);
                             }}
                           >

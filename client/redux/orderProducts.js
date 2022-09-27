@@ -88,6 +88,21 @@ export const getOrderProductThunk = (orderInfo) => {
   };
 };
 
+export const updateOrderProductThunk = (orderInfo) => {
+  return async (dispatch) => {
+    try {
+      console.log(orderInfo);
+      const { data: update } = await axios.put(
+        `/api/ordersProducts/${orderInfo.orderId}/${orderInfo.productId}`,
+        orderInfo
+      );
+      dispatch(updateOrder(update));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
 // REDUCER
 export default function orderProductsReducer(state = [], action) {
   switch (action.type) {

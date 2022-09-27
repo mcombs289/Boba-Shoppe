@@ -4,6 +4,7 @@ import { fetchOrdersByUser } from "../redux/orders";
 import {
   deleteOrderProductThunk,
   getOrderProductThunk,
+  updateOrderProductThunk,
 } from "../redux/orderProducts";
 import { Link } from "react-router-dom";
 
@@ -20,7 +21,12 @@ export class Cart extends React.Component {
     let { orders } = this.props || [];
     let products = orders?.products || [];
     let { user } = this.props;
+    let overallTotal = 0;
+    products.map((product) => {
+      overallTotal += product.order_products.quantity * product.price;
+    });
 
+    // console.log("user", user);
     return (
       <div className="cart">
         <h1>{user.firstName}'s Shopping Bag</h1>
@@ -40,10 +46,40 @@ export class Cart extends React.Component {
                           <h3>Item Price: {product.price}</h3>
                         </div>
                         <div className="quantity">
-                          <button>-</button>
+                          <button
+                            onClick={() => {
+                              let quantity =
+                                (product.order_products.quantity -= 1);
+                              let orderId = orders.id;
+                              let productId = product.id;
+                              this.props.updateOrdersProduct({
+                                quantity,
+                                orderId,
+                                productId,
+                              });
+                              window.location.reload(false);
+                            }}
+                          >
+                            -
+                          </button>
                           <h3>Quantity: {product.order_products.quantity}</h3>
 
-                          <button>+</button>
+                          <button
+                            onClick={() => {
+                              let quantity =
+                                (product.order_products.quantity += 1);
+                              let orderId = orders.id;
+                              let productId = product.id;
+                              this.props.updateOrdersProduct({
+                                quantity,
+                                orderId,
+                                productId,
+                              });
+                              window.location.reload(true);
+                            }}
+                          >
+                            +
+                          </button>
                         </div>
                         <div className="price">
                           <h3>
@@ -74,7 +110,8 @@ export class Cart extends React.Component {
           </div>
           <div className="orderSummary">
             <h2>Order Summmary</h2>
-            <h3>TOTAL</h3>
+            <h3>TOTAL: {overallTotal} </h3>
+            {("in total", console.log(this))}
             <Link to="/checkout">
               <button className="checkout">Proceed To Checkout</button>
             </Link>
@@ -99,6 +136,7 @@ const mapDispatchToProps = (dispatch) => {
     deleteOrderProduct: (thunkInfo) =>
       dispatch(deleteOrderProductThunk(thunkInfo)),
     getOrdersProduct: (order) => dispatch(getOrderProductThunk(order)),
+    updateOrdersProduct: (order) => dispatch(updateOrderProductThunk(order)),
   };
 };
 
