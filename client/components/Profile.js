@@ -1,76 +1,102 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchUser } from "../redux/user";
-import EditProfile from "./EditProfile";
+import { fetchEditedUser } from "../redux/user";
+import { fetchOrdersByUser } from "../redux/orders";
+import {
+  deleteOrderProductThunk,
+  getOrderProductThunk,
+  updateOrderProductThunk,
+} from "../redux/orderProducts";
 
 export class Profile extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      user: {},
+      firstName: this.props.user.firstName,
+      lastName: this.props.user.lastName,
+      email: this.props.user.email,
+      imageUrl: this.props.user.imageUrl,
+      username: this.props.user.username,
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(evt) {
+    this.setState({
+      [evt.target.name]: evt.target.value,
+    });
+  }
+
+  handleSubmit(evt) {
+    evt.preventDefault();
+    this.props.updateUser({ ...this.state });
   }
 
   componentDidMount() {
-    const username = this.props.match.params.username;
-    this.props.setUser(username);
+    console.log(this.props);
+    // this.props.getOrders(this.props.user.id);
   }
 
   render() {
-    const user = this.props.user || {};
-    return (
-      <div className="profileContainer">
-        <div className="leftDiv">
-          <h1>{user.firstName}'s Account</h1>
-          <hr align="left" width="80%" color="black"></hr>
-          <div className="tab">
-            <div>
-              <button type="submit">Account Information</button>
-            </div>
-            <div>
-              <button>My Orders</button>
-            </div>
-            <div>
-              <button>My Wishlist</button>
-            </div>
-            <div>
-              <button>Password Reset</button>
-            </div>
-            <div>
-              <button>Address & Payments</button>
-            </div>
-          </div>
-        </div>
-        <div className="rightDiv">
-          <div>
-            <h1>Account Information</h1>
-            <h3>
-              name: {user.firstName} {user.lastName}
-            </h3>
-            <h3>Email: {user.email}</h3>
-            <h3>username: {user.username}</h3>
-            <EditProfile />
-          </div>
+    const { handleChange, handleSubmit } = this;
+    let { orders } = this.props || [];
+    let products = orders?.products || [];
+    let { user } = this.props;
 
+    console.log("state", this.state);
+    console.log("render", this);
+    return (
+      <div className="cart">
+        <h1>{user.firstName}'s Account information</h1>
+        <form onSubmit={handleSubmit}>
           <div>
-            <img src={user.imageUrl} alt="image" />
-            <button>Edit Profile Pic</button>
+            <label>First Name: </label>
+            <input
+              name="firstName"
+              onChange={handleChange}
+              value={user.firstName}
+            />
           </div>
-        </div>
+          <div>
+            <label>Last Name: </label>
+            <input
+              name="lastName"
+              onChange={handleChange}
+              value={user.lastName}
+            />
+          </div>
+          <div>
+            <label>Email: </label>
+            <input name="email" onChange={handleChange} value={user.email} />
+          </div>
+          <button className="submit-button" type="submit">
+            Submit
+          </button>
+        </form>
       </div>
     );
   }
 }
 
 const mapState = (state) => {
+  console.log("state", state);
   return {
     user: state.auth,
+    orders: state.orders,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setUser: (userId) => dispatch(fetchUser(userId)),
+    updateUser: (username) => dispatch(fetchEditedUser(username)),
+    // getOrders: (userId) => dispatch(fetchOrdersByUser(userId)),
+    // deleteOrderProduct: (thunkInfo) =>
+    //   dispatch(deleteOrderProductThunk(thunkInfo)),
+    // getOrdersProduct: (order) => dispatch(getOrderProductThunk(order)),
+    // updateOrdersProduct: (order) => dispatch(updateOrderProductThunk(order)),
   };
 };
 
