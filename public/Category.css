@@ -1,0 +1,12 @@
+.category{ 
+    width: 100%
+}
+
+.category button{ 
+    text-decoration: none;
+    border-radius: 0px;
+    background-color: #f0c9de;
+    border: solid #d38fb4;  
+    width: 25%;
+  
+}

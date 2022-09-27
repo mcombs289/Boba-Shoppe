@@ -6,17 +6,17 @@ const Category = () => {
     <>
       <div className="container">
         <div className="category">
-          <NavLink style={{ textDecoration: "none" }} to="/products">
-            <button style={{ margin: 10 }}>All</button>
+          <NavLink className={{ textDecoration: "none" }} to="/products">
+            <button>All</button>
           </NavLink>
           <NavLink style={{ textDecoration: "none" }} to="/products/Fruit">
-            <button style={{ margin: 10 }}>Fruit</button>
+            <button>Fruit</button>
           </NavLink>
           <NavLink style={{ textDecoration: "none" }} to="/products/Sweet">
-            <button style={{ margin: 10 }}>Sweet</button>
+            <button>Sweet</button>
           </NavLink>
           <NavLink style={{ textDecoration: "none" }} to="/products/Tea">
-            <button style={{ margin: 10 }}>Tea</button>
+            <button>Tea</button>
           </NavLink>
         </div>
       </div>

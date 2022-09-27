@@ -34,7 +34,7 @@ nav a {
 .NavBar{ 
 	padding-top: 1%;
 	display: flex;
-	background-color: white;
+	background-color: #d38fb4;
 	padding-left: 4rem;
 }
 
@@ -108,7 +108,8 @@ nav img {
 	border-radius: 0;
 }
 
-.authPage h6{
+.authPage h4{
 	text-align: center;
+	width: 200px;
 	color: white;
  }

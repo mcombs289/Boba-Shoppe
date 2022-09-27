@@ -35,7 +35,7 @@ const LogIn = (props) => {
         </div>
         {error && error.response && <div> {error.response.data} </div>}
         <br></br>
-        <h6>Don't have an Account?</h6>
+        <h4>Don't have an Account?</h4>
         <Link to="/signup">
           <button type="button" className=" form-button">
             Sign up
@@ -51,7 +51,11 @@ const SignUp = (props) => {
 
   return (
     <div className="authPage">
-      <form className="form-body" onSubmit={handleSignupSubmit} name={name}>
+      <form
+        className="form-body sign-up-form"
+        onSubmit={handleSignupSubmit}
+        name={name}
+      >
         <h1 className="form-h1">SIGN UP</h1>
         <div>
           <input
@@ -98,7 +102,7 @@ const SignUp = (props) => {
             {displayName}
           </button>
 
-          <h6>Have an Account?</h6>
+          <h4>Have an Account?</h4>
           <Link to="/login">
             <button type="button" className=" form-button">
               Log In
