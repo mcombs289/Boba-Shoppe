@@ -21,10 +21,26 @@ export const setOrder = (order) => {
 
 // THUNK CREATOR
 export const fetchOrdersByUser = (userId) => {
+  console.log("in order fetch");
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`/api/orders/orderhistory/${userId}`);
+      console.log("here", data);
+      dispatch(setOrders(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+// THUNK CREATOR
+export const fetchUnfulfilledOrder = (userId) => {
+  console.log("in order fetch");
   return async (dispatch) => {
     try {
       const { data } = await axios.get(`/api/orders/user/${userId}`);
-      dispatch(setOrders(data));
+      console.log("here", data);
+      dispatch(setOrder(data));
     } catch (error) {
       console.log(error);
     }

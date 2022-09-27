@@ -1,5 +1,8 @@
+*{ font-family: 'Oswald', sans-serif;
+}
 body {
   margin-top: 0rem;
+
   font-family: sans-serif;
   background-image: url('/images/background.jpg');
   background-repeat: no-repeat;
@@ -30,8 +33,10 @@ nav a {
 }
 
 .NavBar{ 
+	padding-top: 1%;
 	display: flex;
-	background-color: blueviolet;
+	background-color: white;
+	padding-left: 4rem;
 }
 
 .NavBar h1{ 

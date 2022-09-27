@@ -28,7 +28,13 @@ class Routes extends Component {
           <Switch>
             <Redirect from="/login" to="/home" />
             <Route path="/" exact component={AllProducts} />
-            <Route exact path="/profile" component={Profile} />
+            <Route
+              exact
+              path="/profile"
+              render={(props) => (
+                <Profile {...props} userId={this.props.loggedInUserId} />
+              )}
+            />
             <Route exact path="/home" component={Home} />
             <Route exact path="/products/:category?" component={AllProducts} />
             <Route exact path="/product/:id" component={Product} />
@@ -61,6 +67,7 @@ const mapState = (state) => {
     // Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
     // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
     isLoggedIn: !!state.auth.id,
+    loggedInUserId: state.auth.id,
   };
 };
 

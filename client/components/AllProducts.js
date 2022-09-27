@@ -87,19 +87,15 @@ export class AllProducts extends React.Component {
                           <h2>{product.name}</h2>
                           <h3>${(product.price / 100).toFixed(2)}</h3>
                         </Link>
-                        <div className="likeArea">
-                          <button
-                            className="add"
-                            onClick={() => {
-                              this.addToCart(product.id, user.currentOrder);
-                            }}
-                          >
-                            Add to Cart
-                          </button>
-                          <button className="like">
-                            <span>♥</span>
-                          </button>
-                        </div>
+
+                        <button
+                          className="add"
+                          onClick={() => {
+                            this.addToCart(product.id, user.currentOrder);
+                          }}
+                        >
+                          Add to Cart
+                        </button>
                       </div>
                     </div>
                   );

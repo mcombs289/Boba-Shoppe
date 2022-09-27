@@ -49,14 +49,31 @@ export class Profile extends React.Component {
     return (
       <div className="cart">
         <h1>{user.firstName}'s Account information</h1>
-
-        <div>
-          Name: {user.firstName}
-          {user.lastName}
-        </div>
-        <div>
-          <div>Email: {user.email} </div>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>First Name: </label>
+            <input
+              name="firstName"
+              onChange={handleChange}
+              value={user.firstName}
+            />
+          </div>
+          <div>
+            <label>Last Name: </label>
+            <input
+              name="lastName"
+              onChange={handleChange}
+              value={user.lastName}
+            />
+          </div>
+          <div>
+            <label>Email: </label>
+            <input name="email" onChange={handleChange} value={user.email} />
+          </div>
+          <button className="submit-button" type="submit">
+            Submit
+          </button>
+        </form>
       </div>
     );
   }
