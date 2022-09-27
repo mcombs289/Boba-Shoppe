@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchOrdersByUser } from "../redux/orders";
-import { deleteOrderProductThunk } from "../redux/orderProducts";
+import {
+  deleteOrderProductThunk,
+  getOrderProductThunk,
+} from "../redux/orderProducts";
 import { Link } from "react-router-dom";
 
 export class Cart extends React.Component {
@@ -36,27 +39,26 @@ export class Cart extends React.Component {
                         <div className="price">
                           <h3>Item Price: {product.price}</h3>
                         </div>
-                        <select name="quantity" className="quantSelector">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option>
-                        </select>
+                        <div className="quantity">
+                          <button>-</button>
+                          <h3>Quantity: {product.order_products.quantity}</h3>
+
+                          <button>+</button>
+                        </div>
                         <div className="price">
-                          <h3>Total Price: {product.price}</h3>
+                          <h3>
+                            Total Price:
+                            {product.price * product.order_products.quantity}
+                          </h3>
                           <h5
                             className="remove"
                             onClick={() => {
-                              let thunkInfo = [];
-                              thunkInfo.push(orders.id);
-                              thunkInfo.push(product.id);
-                              this.props.deleteOrderProduct(thunkInfo);
+                              let orderId = orders.id;
+                              let productId = product.id;
+                              this.props.deleteOrderProduct({
+                                orderId,
+                                productId,
+                              });
                               window.location.reload(false);
                             }}
                           >
@@ -96,6 +98,7 @@ const mapDispatchToProps = (dispatch) => {
     getOrders: (userId) => dispatch(fetchOrdersByUser(userId)),
     deleteOrderProduct: (thunkInfo) =>
       dispatch(deleteOrderProductThunk(thunkInfo)),
+    getOrdersProduct: (order) => dispatch(getOrderProductThunk(order)),
   };
 };
 
