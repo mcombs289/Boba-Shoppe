@@ -43,7 +43,7 @@ export class Cart extends React.Component {
                           <h2> {product.name}</h2>
                         </div>
                         <div className="price">
-                          <h3>Item Price: {product.price}</h3>
+                          <h3>Item Price: ${product.price / 100}</h3>
                         </div>
                         <div className="quantity">
                           <button
@@ -83,8 +83,9 @@ export class Cart extends React.Component {
                         </div>
                         <div className="price">
                           <h3>
-                            Total Price:
-                            {product.price * product.order_products.quantity}
+                            Total Price: $
+                            {(product.price * product.order_products.quantity) /
+                              100}
                           </h3>
                           <h5
                             className="remove"
@@ -110,7 +111,7 @@ export class Cart extends React.Component {
           </div>
           <div className="orderSummary">
             <h2>Order Summmary</h2>
-            <h3>TOTAL: {overallTotal} </h3>
+            <h3>TOTAL: ${(overallTotal / 100).toFixed(2)} </h3>
             {("in total", console.log(this))}
             <Link to="/checkout">
               <button className="checkout">Proceed To Checkout</button>
