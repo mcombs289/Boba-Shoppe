@@ -7,7 +7,7 @@ import AllProducts from "./AllProducts";
  */
 export const Home = (props) => {
   const { username } = props;
-  console.log("Home: ", props);
+
   return (
     <div>
       <h1 className="username">Hi, Bobalicious {username}</h1>

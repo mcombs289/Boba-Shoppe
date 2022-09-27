@@ -42,7 +42,7 @@ class Product extends React.Component {
             <img className="img" src={product.imageUrl} />
           </div>
           <div className="info-card">
-            <p className="info">Price: {product.price}</p>
+            <p className="info">Price: ${(product.price / 100).toFixed(2)}</p>
             <p className="info">Left in Stock: {product.quantity}</p>
             <p className="info">Description: {product.description}</p>
             <button>Add to Cart</button>
