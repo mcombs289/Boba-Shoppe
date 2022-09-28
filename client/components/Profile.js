@@ -7,6 +7,7 @@ import {
   getOrderProductThunk,
   updateOrderProductThunk,
 } from "../redux/orderProducts";
+import { Link } from "react-router-dom";
 
 export class Profile extends React.Component {
   constructor(props) {
@@ -51,11 +52,52 @@ export class Profile extends React.Component {
         <h1>{user.firstName}'s Account information</h1>
 
         <div>
-          Name: {user.firstName}
-          {user.lastName}
+          Name: {user.firstName} {user.lastName}
         </div>
-        <div>
-          <div>Email: {user.email} </div>
+
+        <div>Email: {user.email} </div>
+        <Link to={"/editProfile/"}>
+          <button> Edit User</button>
+        </Link>
+        <div className="Order-history">
+          <h1>Order History</h1>
+
+          {orders.map((order) => {
+            let UTCdate = order.updatedAt;
+            let products = order.products;
+            return (
+              <div>
+                <hr />
+                <div
+                  key={order.id}
+                  style={{ display: "flex", flexDirection: "row" }}
+                >
+                  <div>
+                    <h3>Date Ordered : {UTCdate.slice(0, -14)}</h3>
+                    <h3>Order Number: {order.id}</h3>
+                  </div>
+                  <div>
+                    {products.map((product) => {
+                      return (
+                        <img
+                          key={product.id}
+                          style={{
+                            height: "100px",
+                            width: "100px",
+                            borderRadius: "100%",
+                            margin: "1rem",
+                          }}
+                          src={product.imageUrl}
+                          alt="image"
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+          <hr />
         </div>
       </div>
     );
