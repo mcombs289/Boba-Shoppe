@@ -7,22 +7,22 @@ const CARD_OPTIONS = {
   iconStyle: "solid",
   style: {
     base: {
-      iconColor: "#c4f0ff",
+      iconColor: "#BFAEF6",
       color: "#000",
       fontWeight: 500,
       fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
       fontSize: "16px",
       fontSmoothing: "antialiased",
       ":-webkit-autofill": {
-        color: "#fce883",
+        color: "#000000",
       },
       "::placeholder": {
-        color: "#87bbfd",
+        color: "#BFAEF6",
       },
     },
     invalid: {
-      iconColor: "#ffc7ee",
-      color: "#ffc7ee",
+      iconColor: "#C21010",
+      color: "#C21010",
     },
   },
 };
@@ -62,6 +62,7 @@ const Field = ({
 
 const SubmitButton = ({ processing, error, children, disabled }) => (
   <button
+    id="stripeButton"
     className={`SubmitButton ${error ? "SubmitButton--error" : ""}`}
     type="submit"
     disabled={processing || disabled}
@@ -87,7 +88,12 @@ const ErrorMessage = ({ children }) => (
 );
 
 const ResetButton = ({ onClick }) => (
-  <button type="button" className="ResetButton" onClick={onClick}>
+  <button
+    id="stripeButton"
+    type="button"
+    className="ResetButton"
+    onClick={onClick}
+  >
     <svg width="32px" height="32px" viewBox="0 0 32 32">
       <path
         fill="#000"
@@ -164,7 +170,7 @@ const CheckoutForm = () => {
       <ResetButton onClick={reset} />
     </div>
   ) : (
-    <form className="Form" onSubmit={handleSubmit}>
+    <form className="CheckoutForm" onSubmit={handleSubmit}>
       <fieldset className="FormGroup">
         <Field
           label="Name"
@@ -182,7 +188,7 @@ const CheckoutForm = () => {
           label="Email"
           id="email"
           type="email"
-          placeholder="spatagonia@mail.com"
+          placeholder="email@example.com"
           required
           autoComplete="email"
           value={billingDetails.email}
