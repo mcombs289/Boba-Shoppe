@@ -51,6 +51,7 @@ export class Profile extends React.Component {
       <div className="cart">
         <h1>{user.firstName}'s Account information</h1>
 
+        <img src={user.imageUrl} alt="image" />
         <div>
           Name: {user.firstName} {user.lastName}
         </div>
