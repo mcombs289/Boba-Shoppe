@@ -71,3 +71,8 @@
     margin-top: 50%;
     text-decoration: underline;
 }
+
+.makeFlex {
+    display: flex;
+    flex-direction: row;
+}

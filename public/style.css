@@ -1,5 +1,8 @@
+*{ font-family: 'Oswald', sans-serif;
+}
 body {
-  margin-top: 5rem;
+  margin-top: 0rem;
+
   font-family: sans-serif;
   background-image: url('/images/background.jpg');
   background-repeat: no-repeat;
@@ -22,7 +25,6 @@ nav a {
 
 .username {
 	color: white; 
-	margin-top: 10rem;
 	text-align: center;
 	-webkit-text-stroke: 2px purple;
 	-webkit-text-stroke-width: 1px;
@@ -30,27 +32,28 @@ nav a {
 }
 
 .NavBar{ 
+	padding-top: 1%;
 	display: flex;
-	background-color: blueviolet;
+	background: linear-gradient(90deg, rgba(94, 84, 142, 0.75), rgba(159, 134, 192, 0.75));
+	padding-left: 4rem;
 }
 
 .NavBar h1{ 
  width:30%
 }
 .authPage{
-	background: linear-gradient( #5E548E, #231942);
 	padding: 2%;
 }
 .AlignRight{
 
-	margin-left: 60%
+	margin-left: 55%
 }
 .form-body{
   border-radius: 10px;
 
   background: linear-gradient(#231942, #5E548E);
 	box-shadow: 5px 20px 50px #000;
-  height: 600px;
+  height: 500px;
   width: 150px;
   display: flex;
   flex-direction: column;
@@ -60,6 +63,8 @@ nav a {
   padding-top: 3%;
 
 }
+
+.sign-up-form{  height: 700px;}
 
 .form-input{
   width: 200px;
@@ -75,7 +80,7 @@ nav a {
 }
 
 .form-button {
-  width: 100px;
+  width: 150px;
 	height: 40px;
 	margin: 10px auto;
 	justify-content: center;
@@ -103,11 +108,17 @@ nav img {
 	border-radius: 0;
 }
 
-.authPage h6{
+.authPage h4{
+	text-align: center;
+	width: 200px;
 	color: white;
  }
 
- .authPage .signUp{ 
-	margin-top: -4%;
-	width: 200px;
+ .editUserPage {
+	border: solid black;
+	width: 120%;
+	height: 85%;
+	margin-top: 7%;
+	margin: 5%;
+	padding-left: 10%;
  }

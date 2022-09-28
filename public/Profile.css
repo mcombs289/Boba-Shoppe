@@ -19,7 +19,6 @@
     background-color: white;
     width: 70%;
     height: max-content;
-    display: flex;
     padding-left: 2%;
     height: 400px
 
@@ -40,3 +39,7 @@
     color:blue;
 }
 
+
+.order-info{
+    display: flex;
+flex-direction: row;}

@@ -10,6 +10,7 @@ export class EditUser extends React.Component {
       lastName: "",
       email: "",
       username: "",
+      imageUrl: this.props.user.imageUrl,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,9 +38,12 @@ export class EditUser extends React.Component {
   render() {
     const { firstName, lastName, email, username } = this.state;
     const { handleChange, handleSubmit } = this;
+    let currentUser = this.props.user[0] || {};
+    console.log(currentUser.firstName);
     return (
-      <div>
-        <form className="edit-form" onSubmit={handleSubmit}>
+      <div className="editUserPage">
+        <h2>Edit {currentUser.firstName}'s account information</h2>
+        <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="firstName"> First Name: </label>
             <input

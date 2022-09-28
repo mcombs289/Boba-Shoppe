@@ -40,6 +40,22 @@ router.get("/user/:userId", async (req, res, next) => {
   }
 });
 
+//returns orders for a single user and that are not fulfilled
+router.get("/orderhistory/:userId", async (req, res, next) => {
+  try {
+    const order = await Order.findAll({
+      where: {
+        userId: req.params.userId,
+        isFulfilled: true,
+      },
+      include: [Product],
+    });
+    res.json(order);
+  } catch (err) {
+    next(err);
+  }
+});
+
 //returns a single order
 router.get("/:id", async (req, res, next) => {
   try {
