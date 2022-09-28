@@ -45,6 +45,7 @@ export class AllProducts extends React.Component {
     return isAdmin ? (
       <div>
         <Category />
+        <h1 className="username">Hi, Bobalicious</h1>
         <div id="allItems">
           <div className="itemContainer">
             {products.length

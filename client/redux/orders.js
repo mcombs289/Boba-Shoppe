@@ -25,7 +25,7 @@ export const fetchOrdersByUser = (userId) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(`/api/orders/orderhistory/${userId}`);
-      console.log("here", data);
+
       dispatch(setOrders(data));
     } catch (error) {
       console.log(error);
@@ -39,7 +39,6 @@ export const fetchUnfulfilledOrder = (userId) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(`/api/orders/user/${userId}`);
-      console.log("here", data);
       dispatch(setOrder(data));
     } catch (error) {
       console.log(error);

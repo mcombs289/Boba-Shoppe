@@ -11,6 +11,7 @@ import Profile from "./components/Profile";
 import AdminProfileView from "./components/AdminProfileView";
 import Cart from "./components/Cart";
 import CheckoutForm from "./components/CheckoutForm";
+import EditOwnProfile from "./components/EditOwnProfile";
 
 /**
  * COMPONENT
@@ -42,6 +43,7 @@ class Routes extends Component {
             <Route exact path="/users/:username" component={AdminProfileView} />
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/checkout" component={CheckoutForm} />
+            <Route exact path="/editProfile" component={EditOwnProfile} />
           </Switch>
         ) : (
           <Switch>

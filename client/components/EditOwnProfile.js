@@ -31,44 +31,39 @@ export class Profile extends React.Component {
   }
 
   handleSubmit(evt) {
+    console.log(this);
     evt.preventDefault();
     this.props.updateUser({ ...this.state });
-  }
-
-  componentDidMount() {
-    this.props.getOrders(this.props.userId);
+    this.props.history.push("/profile");
+    window.location.reload(false);
   }
 
   render() {
-    console.log("this.props", this.props);
     const { handleChange, handleSubmit } = this;
     let { orders } = this.props || [];
     let products = orders?.products || [];
     let { user } = this.props;
-
+    const { firstName, lastName, email, username } = this.state;
+    console.log(this.state);
     return (
       <div className="cart">
         <h1>{user.firstName}'s Account information</h1>
         <form onSubmit={handleSubmit}>
           <div>
+            <label>User Name: </label>
+            <input name="username" onChange={handleChange} value={username} />
+          </div>
+          <div>
             <label>First Name: </label>
-            <input
-              name="firstName"
-              onChange={handleChange}
-              value={user.firstName}
-            />
+            <input name="firstName" onChange={handleChange} value={firstName} />
           </div>
           <div>
             <label>Last Name: </label>
-            <input
-              name="lastName"
-              onChange={handleChange}
-              value={user.lastName}
-            />
+            <input name="lastName" onChange={handleChange} value={lastName} />
           </div>
           <div>
             <label>Email: </label>
-            <input name="email" onChange={handleChange} value={user.email} />
+            <input name="email" onChange={handleChange} value={email} />
           </div>
           <button className="submit-button" type="submit">
             Submit
@@ -90,7 +85,6 @@ const mapState = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateUser: (username) => dispatch(fetchEditedUser(username)),
-    getOrders: (userId) => dispatch(fetchOrdersByUser(userId)),
     // deleteOrderProduct: (thunkInfo) =>
     //   dispatch(deleteOrderProductThunk(thunkInfo)),
     // getOrdersProduct: (order) => dispatch(getOrderProductThunk(order)),

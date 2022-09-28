@@ -6,7 +6,7 @@ const Category = () => {
     <>
       <div className="container">
         <div className="category">
-          <NavLink className={{ textDecoration: "none" }} to="/products">
+          <NavLink style={{ textDecoration: "none" }} to="/products">
             <button>All</button>
           </NavLink>
           <NavLink style={{ textDecoration: "none" }} to="/products/Fruit">
