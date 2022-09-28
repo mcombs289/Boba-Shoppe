@@ -7,7 +7,6 @@ import {
   getOrderProductThunk,
   updateOrderProductThunk,
 } from "../redux/orderProducts";
-import { Link } from "react-router-dom";
 
 export class Profile extends React.Component {
   constructor(props) {
@@ -32,74 +31,44 @@ export class Profile extends React.Component {
   }
 
   handleSubmit(evt) {
+    console.log(this);
     evt.preventDefault();
     this.props.updateUser({ ...this.state });
-  }
-
-  componentDidMount() {
-    this.props.getOrders(this.props.userId);
+    this.props.history.push("/profile");
+    window.location.reload(false);
   }
 
   render() {
-    console.log("this.props", this.props);
     const { handleChange, handleSubmit } = this;
     let { orders } = this.props || [];
     let products = orders?.products || [];
     let { user } = this.props;
-
+    const { firstName, lastName, email, username } = this.state;
+    console.log(this.state);
     return (
       <div className="cart">
         <h1>{user.firstName}'s Account information</h1>
-
-        <img src={user.imageUrl} alt="image" />
-        <div>
-          Name: {user.firstName} {user.lastName}
-        </div>
-
-        <div>Email: {user.email} </div>
-        <Link to={"/editProfile/"}>
-          <button> Edit User</button>
-        </Link>
-        <div className="Order-history">
-          <h1>Order History</h1>
-
-          {orders.map((order) => {
-            let UTCdate = order.updatedAt;
-            let products = order.products;
-            return (
-              <div>
-                <hr />
-                <div
-                  key={order.id}
-                  style={{ display: "flex", flexDirection: "row" }}
-                >
-                  <div>
-                    <h3>Date Ordered : {UTCdate.slice(0, -14)}</h3>
-                    <h3>Order Number: {order.id}</h3>
-                  </div>
-                  <div>
-                    {products.map((product) => {
-                      return (
-                        <img
-                          key={product.id}
-                          style={{
-                            height: "100px",
-                            width: "100px",
-                            borderRadius: "100%",
-                            margin: "1rem",
-                          }}
-                          src={product.imageUrl}
-                          alt="image"
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-          <hr />
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>User Name: </label>
+            <input name="username" onChange={handleChange} value={username} />
+          </div>
+          <div>
+            <label>First Name: </label>
+            <input name="firstName" onChange={handleChange} value={firstName} />
+          </div>
+          <div>
+            <label>Last Name: </label>
+            <input name="lastName" onChange={handleChange} value={lastName} />
+          </div>
+          <div>
+            <label>Email: </label>
+            <input name="email" onChange={handleChange} value={email} />
+          </div>
+          <button className="submit-button" type="submit">
+            Submit
+          </button>
+        </form>
       </div>
     );
   }
@@ -116,7 +85,6 @@ const mapState = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateUser: (username) => dispatch(fetchEditedUser(username)),
-    getOrders: (userId) => dispatch(fetchOrdersByUser(userId)),
     // deleteOrderProduct: (thunkInfo) =>
     //   dispatch(deleteOrderProductThunk(thunkInfo)),
     // getOrdersProduct: (order) => dispatch(getOrderProductThunk(order)),

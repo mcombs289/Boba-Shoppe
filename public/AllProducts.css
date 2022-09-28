@@ -38,7 +38,7 @@
     display: inline-block;
     outline: 0;
     border: 0;
-    margin: -15px 20px -15px 12px;
+
     text-transform: uppercase;
     letter-spacing: 1px;
     color: white;
@@ -51,25 +51,13 @@
     transition: all .4s ease-in-out;
   }
 
-  .likeArea{
-    width:300px;
-    display: flex;
+ 
 
-  }
-
-  .likeArea .add {
-    width: 75%;
-    height: 10%;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-  }
+   .add {
   
-  .likeArea .like {
-    width: 20%;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    width: 105%;
+    height: 20%;
+    border-radius: 5px;
+
   }
   

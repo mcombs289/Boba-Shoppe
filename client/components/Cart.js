@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchOrdersByUser } from "../redux/orders";
+import { fetchUnfulfilledOrder } from "../redux/orders";
 import {
   deleteOrderProductThunk,
   getOrderProductThunk,
@@ -137,7 +137,7 @@ const mapState = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getOrders: (userId) => dispatch(fetchOrdersByUser(userId)),
+    getOrders: (userId) => dispatch(fetchUnfulfilledOrder(userId)),
     deleteOrderProduct: (thunkInfo) =>
       dispatch(deleteOrderProductThunk(thunkInfo)),
     getOrdersProduct: (order) => dispatch(getOrderProductThunk(order)),

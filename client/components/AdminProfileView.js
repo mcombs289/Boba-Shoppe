@@ -11,31 +11,27 @@ export class AdminProfileView extends React.Component {
 
   render() {
     const user = this.props.user[0] || {};
-
     return (
-      <div className="profileContainer">
-        <div className="leftDiv">
-          <h1>{user.firstName}'s Account</h1>
-          <hr align="left" width="80%" color="black"></hr>
-          <div className="tab">
-            <br />
-            <button>Account Information</button>
-            <button>Order History</button>
-          </div>
-        </div>
-        <div className="rightDiv">
-          <div>
-            <h1>Account Information</h1>
-            <h3>
-              name: {user.firstName} {user.lastName}
-            </h3>
-            <h3>Email: {user.email}</h3>
-            <h3>username: {user.username}</h3>
-            <EditUser />
-          </div>
-          <div>
-            <img src={user.imageUrl} alt="image" />
-            <button>Edit Profile Pic</button>
+      <div>
+        <h1>{user.firstName}'s Account</h1>
+        <div className="profileContainer">
+          <div className="rightDiv">
+            <div>
+              <h1>Account Information</h1>
+              <h3>
+                name: {user.firstName} {user.lastName}
+              </h3>
+              <h3>Email: {user.email}</h3>
+              <h3>username: {user.username}</h3>
+              <img
+                style={{ height: "100px", width: "100px" }}
+                src={user.imageUrl}
+                alt="image"
+              />
+            </div>
+            <div className="leftDiv">
+              <EditUser />
+            </div>
           </div>
         </div>
       </div>

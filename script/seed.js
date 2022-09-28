@@ -146,7 +146,7 @@ async function seed() {
     }),
     Product.create({
       id: 10,
-      name: "Coconut Butterfly Pea Flower Boba Tea",
+      name: "Coconut Butterfly Pea Flower",
       quantity: 8,
       imageUrl: "/images/butterflyPea.png",
       price: 599,
