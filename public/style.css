@@ -34,7 +34,7 @@ nav a {
 .NavBar{ 
 	padding-top: 1%;
 	display: flex;
-	background-color: #d38fb4;
+	background: linear-gradient(90deg, rgba(94, 84, 142, 0.75), rgba(159, 134, 192, 0.75));
 	padding-left: 4rem;
 }
 
@@ -46,7 +46,7 @@ nav a {
 }
 .AlignRight{
 
-	margin-left: 60%
+	margin-left: 55%
 }
 .form-body{
   border-radius: 10px;
@@ -112,4 +112,13 @@ nav img {
 	text-align: center;
 	width: 200px;
 	color: white;
+ }
+
+ .editUserPage {
+	border: solid black;
+	width: 120%;
+	height: 85%;
+	margin-top: 7%;
+	margin: 5%;
+	padding-left: 10%;
  }
