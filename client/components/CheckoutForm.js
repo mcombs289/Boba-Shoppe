@@ -5,26 +5,26 @@ import { Elements } from "@stripe/react-stripe-js";
 
 const CARD_OPTIONS = {
   iconStyle: "solid",
-  // style: {
-  //   base: {
-  //     iconColor: "#BFAEF6",
-  //     color: "#000",
-  //     fontWeight: 500,
-  //     fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
-  //     fontSize: "16px",
-  //     fontSmoothing: "antialiased",
-  //     ":-webkit-autofill": {
-  //       color: "#fce883",
-  //     },
-  //     "::placeholder": {
-  //       color: "#BFAEF6",
-  //     },
-  //   },
-  //   invalid: {
-  //     iconColor: "#C21010",
-  //     color: "#C21010",
-  //   },
-  // },
+  style: {
+    base: {
+      iconColor: "#BFAEF6",
+      color: "#000",
+      fontWeight: 500,
+      fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+      fontSize: "16px",
+      fontSmoothing: "antialiased",
+      ":-webkit-autofill": {
+        color: "#000000",
+      },
+      "::placeholder": {
+        color: "#BFAEF6",
+      },
+    },
+    invalid: {
+      iconColor: "#C21010",
+      color: "#C21010",
+    },
+  },
 };
 
 const CardField = ({ onChange }) => (
@@ -170,7 +170,7 @@ const CheckoutForm = () => {
       <ResetButton onClick={reset} />
     </div>
   ) : (
-    <form className="Form" onSubmit={handleSubmit}>
+    <form className="CheckoutForm" onSubmit={handleSubmit}>
       <fieldset className="FormGroup">
         <Field
           label="Name"
