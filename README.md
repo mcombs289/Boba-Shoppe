@@ -15,3 +15,8 @@
  - [JSON Web Token](https://jwt.io)
  - [React](https://reactjs.org)
  - [Redux](https://redux.js.org)
+
+## Boba Product Page
+<div align="center">
+  <img alt="Logo" src="https://raw.githubusercontent.com/mcombs289/Boba-Shoppe/main/public/images/keepsake.png" />
+</div>
