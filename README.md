@@ -2,7 +2,7 @@
   <h1>Boba Shoppe</h1>
  </div>
 
-E-commerce application that has 3 different user experiences: admin, logged in customer, and non-logged in customer. Admin can manipulate product quanity and description. Both logged in and non-logged in customers can purchase items, but logged in users have an order history. 
+E-commerce application that has 3 different user types: admin, logged in customer, and non-logged in customer. Admin can manipulate product quanity and description. Both logged in and non-logged in customers can purchase items, but logged in users have an order history. 
 
  ## Project setup
  1. Install NPM packages `npm install`
